@@ -1,0 +1,12 @@
+version: "3"
+services:
+  pmt-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pmt-prod
+    restart: always
+    ports:
+      - 8888:8888
+    env_file:
+      - .env
