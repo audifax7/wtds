@@ -64,13 +64,13 @@ export function ProvinceForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Province Name</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       disabled={isPending}
                       type="text"
-                      placeholder="Your Name"
+                      placeholder="Enter province name"
                     />
                   </FormControl>
                   <FormMessage />

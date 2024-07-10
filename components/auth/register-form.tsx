@@ -62,7 +62,7 @@ const RegisterForm = () => {
 
   return (
     <CardWrapper
-      headerLabel="Register an account to get started!"
+      headerLabel="Register an account to get start using WASAC Treatement and distribution portal!"
       backButtonLabel="Have an account already?"
       backButtonHref="/"
       showSocial

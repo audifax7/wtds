@@ -47,7 +47,6 @@ export function CloseWaterSourceForm({ source }: CloseWaterSourcePageProps) {
   });
 
   const onSubmit = async (values: z.infer<typeof CloseWaterSourceSchema>) => {
-    console.log(values);
     try {
       startTransition(async () => {
         const data = await closeWaterSource(values);

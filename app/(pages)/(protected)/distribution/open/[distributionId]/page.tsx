@@ -21,7 +21,6 @@ export default async function CloseDistributionLinePage({
     },
   });
 
-  console.log('hello')
   return (
     <>
       <div className="space-y-6">

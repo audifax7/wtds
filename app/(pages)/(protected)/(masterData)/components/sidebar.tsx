@@ -13,6 +13,27 @@ export function MasterDataSidebar({ className }: MasterDataSidebarProps) {
             MASTER DATA
           </h2>
           <div className="space-y-1">
+          <Link href={"/services"}>
+              <Button variant="ghost" className="w-full justify-start">
+                Services
+              </Button>
+            </Link>
+            <Link href={"/chemical"}>
+              <Button variant="ghost" className="w-full justify-start">
+                Chemicals
+              </Button>
+            </Link>
+
+            <Link href={"/line"}>
+              <Button variant="ghost" className="w-full justify-start">
+                Lines
+              </Button>
+            </Link>
+            <Link href={"/source"}>
+              <Button variant="ghost" className="w-full justify-start">
+                Water source
+              </Button>
+            </Link>
             <Link href={"/province"}>
               <Button variant="ghost" className="w-full justify-start">
                 Provinces
@@ -38,27 +59,7 @@ export function MasterDataSidebar({ className }: MasterDataSidebarProps) {
                 Villages
               </Button>
             </Link>
-            <Link href={"/services"}>
-              <Button variant="secondary" className="w-full justify-start">
-                Services
-              </Button>
-            </Link>
-            <Link href={"/chemical"}>
-              <Button variant="ghost" className="w-full justify-start">
-                Chemicals
-              </Button>
-            </Link>
 
-            <Link href={"/line"}>
-              <Button variant="ghost" className="w-full justify-start">
-                Lines
-              </Button>
-            </Link>
-            <Link href={"/source"}>
-              <Button variant="ghost" className="w-full justify-start">
-                Water source
-              </Button>
-            </Link>
           </div>
         </div>
       </div>

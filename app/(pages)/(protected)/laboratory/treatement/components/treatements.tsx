@@ -7,12 +7,23 @@ import { Issue, Treatment, User } from "@prisma/client";
 
 interface TreatementsListProps {
   treatements: Treatment[];
+  user:User;
 }
 
-export const Treatements = ({ treatements }: TreatementsListProps) => {
-  return (
+export const Treatements = ({ treatements,user }: TreatementsListProps) => {
+  const data:any=[];
+  treatements.forEach(function (treatement: any) {
+    data.push(
+      {
+        ...treatement,
+        "currentUser":user
+
+      }
+    )
+  })
+    return (
     <>
-      <DataTable columns={columns} data={treatements} />
+      <DataTable columns={columns} data={data} />
     </>
   );
 };

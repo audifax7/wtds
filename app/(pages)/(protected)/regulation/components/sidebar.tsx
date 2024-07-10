@@ -14,7 +14,7 @@ export function RegulationSidebar({ className }: RegulationSidebarProps) {
           </h2>
           <div className="space-y-1">
             <Link href={"/regulation/rules"}>
-              <Button variant="secondary" className="w-full justify-start">
+              <Button variant="ghost" className="w-full justify-start">
                 RULES & REGULATION
               </Button>
             </Link>

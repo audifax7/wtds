@@ -27,7 +27,7 @@ export default async function IssuesPage() {
         <div className="flex items-center justify-between space-y-2 pb-4">
           <h2 className="text-3xl font-bold tracking-tight">MY ISSUES</h2>
           <div className="flex items-center space-x-2">
-            <Link href={"/issues/add"}>
+            <Link href={"/client/issues/add"}>
               <Button>
                 <PlusCircle />
                 <span className="pl-2">Add issue</span>

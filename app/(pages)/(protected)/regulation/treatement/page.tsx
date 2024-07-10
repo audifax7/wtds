@@ -1,12 +1,15 @@
 import { Metadata } from "next";
 import { db } from "@/lib/db";
 import { Treatements } from "../../laboratory/treatement/components/treatements";
+import { currentUser } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "WATER TREATEMENT",
 };
 
 export default async function CustomersAccountPage() {
+
+  const user= await currentUser()
   const treatements: any = await db.treatment.findMany({
     where: {
       approved: true,
@@ -24,7 +27,7 @@ export default async function CustomersAccountPage() {
             WATER TREATEMENTS FROM WASAC
           </h2>
         </div>
-        <Treatements treatements={treatements} />
+        <Treatements user={user} treatements={treatements} />
       </div>
     </>
   );

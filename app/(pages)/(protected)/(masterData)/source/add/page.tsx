@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { WaterSourceForm } from "./components/form";
 
 export const metadata: Metadata = {
-  title: "ADD VILLAGE",
+  title: "ADD WATER SOURCE",
 };
 
 export default async function AddVillagePage() {

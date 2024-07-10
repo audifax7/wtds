@@ -14,7 +14,6 @@ export default async function OpenDistributionLinePage() {
   const user = await currentUser();
   const opens: any = await db.distribution.findMany({
     where: {
-      userId: user.id,
       isOpen: true,
     },
     include: {

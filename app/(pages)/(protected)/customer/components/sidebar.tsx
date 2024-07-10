@@ -14,7 +14,7 @@ export function IssuesSidebar({ className }: IssuesSidebarProps) {
           </h2>
           <div className="space-y-1">
             <Link href={"/customer/issues"}>
-              <Button variant="secondary" className="w-full justify-start">
+              <Button variant="ghost" className="w-full justify-start">
                 ISSUES
               </Button>
             </Link>

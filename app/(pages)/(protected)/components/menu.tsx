@@ -30,13 +30,13 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
         <>
           <Link
             href="/account/staff"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            className="text-sm font-medium transition-colors hover:text-primary"
           >
             ACCOUNT
           </Link>
           <Link
             href="/services"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            className="text-sm font-medium transition-colors hover:text-primary"
           >
             MASTER DATA
           </Link>
@@ -46,7 +46,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
       {isSource ? (
         <Link
           href="/source/open"
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          className="text-sm font-medium transition-colors hover:text-primary"
         >
           WATER SOURCE
         </Link>
@@ -56,7 +56,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
         <>
           <Link
             href="/client/issues"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            className="text-sm font-medium transition-colors hover:text-primary"
           >
             MY ACCOUNT
           </Link>
@@ -66,7 +66,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
       {isLab || isSupervisor ? (
         <Link
           href="/laboratory/source"
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          className="text-sm font-medium transition-colors hover:text-primary"
         >
           LABORATORY
         </Link>
@@ -75,7 +75,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
       {isRSB ? (
         <Link
           href="/regulation/rules"
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          className="text-sm font-medium transition-colors hover:text-primary"
         >
           REGULATIONS
         </Link>
@@ -83,7 +83,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
       {isDistribution || isSupervisor ? (
         <Link
           href="/distribution/open"
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          className="text-sm font-medium transition-colors hover:text-primary"
         >
           DISTRIBUTION
         </Link>
@@ -92,11 +92,19 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
       {isSupervisor ? (
         <Link
           href="/customer/issues"
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          className="text-sm font-medium transition-colors hover:text-primary"
         >
           CUSTOMERS
         </Link>
       ) : null}
+       <Link
+        href="/report/treatement"
+        className="text-sm font-medium transition-colors hover:text-primary"
+      >
+        REPORT
+      </Link>
     </nav>
+
+    
   );
 }

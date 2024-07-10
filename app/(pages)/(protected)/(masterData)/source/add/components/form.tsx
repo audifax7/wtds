@@ -109,7 +109,7 @@ export function WaterSourceForm({
     resolver: zodResolver(AddWaterSourceSchema),
     defaultValues: {
       name: "",
-      cellId: "",
+      villageId: "",
     },
   });
 
@@ -247,14 +247,14 @@ export function WaterSourceForm({
               name="villageId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Cell</FormLabel>
+                  <FormLabel>Village</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select a cell" />
+                        <SelectValue placeholder="Select a village" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>

@@ -52,7 +52,6 @@ export function CloseDistributionLineForm({
   const onSubmit = async (
     values: z.infer<typeof CloseDistributionLineSchema>
   ) => {
-    console.log(values);
     try {
       startTransition(async () => {
         const data = await closeDistributionLine(values);

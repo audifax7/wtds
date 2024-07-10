@@ -129,11 +129,10 @@ export function StaffAccountForm() {
                     <SelectContent>
                       <SelectItem value="ADMIN">ADMIN</SelectItem>
                       <SelectItem value="SUPERVISOR">SUPERVISOR</SelectItem>
-                      <SelectItem value="LABORATOR">LABORATOR</SelectItem>
-                      <SelectItem value="ADMIN">ADMIN</SelectItem>
-                      <SelectItem value="SOURCE">SOURCE</SelectItem>
-                      <SelectItem value="DISTRIBUTOR">DISTRIBUTOR</SelectItem>
-                      <SelectItem value="RSB">RSB</SelectItem>
+                      <SelectItem value="LABORATOR">LAB TECHNICIAN</SelectItem>
+                      <SelectItem value="SOURCE">WATER SOURCE PERSONAL</SelectItem>
+                      <SelectItem value="DISTRIBUTOR">DISTRIBUTION OFFICER</SelectItem>
+                      <SelectItem value="RSB">QUALITY CONTROL STAFF (RSB)</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />

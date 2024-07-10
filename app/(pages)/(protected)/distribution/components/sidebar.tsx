@@ -17,7 +17,7 @@ export function DistributionLineSidebar({
           </h2>
           <div className="space-y-1">
             <Link href={"/distribution/open"}>
-              <Button variant="secondary" className="w-full justify-start">
+              <Button variant="ghost" className="w-full justify-start">
                 OPENED
               </Button>
             </Link>

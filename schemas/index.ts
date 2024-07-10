@@ -183,6 +183,18 @@ export const AddChemicalSchema = z.object({
   }),
 });
 
+export const AddWaterSourceSchema = z.object({
+  name: z.string().min(1, {
+    message: "Please enter your name, required.",
+  }),
+  provinceId: z.optional(z.string()),
+  districtId: z.optional(z.string()),
+  sectorId: z.optional(z.string()),
+  cellId: z.optional(z.string()),
+  villageId: z.string().min(1, {
+    message: "Please select village, required.",
+  }),});
+
 export const AddProvinceSchema = z.object({
   name: z.string().min(1, {
     message: "Please enter your name, required.",

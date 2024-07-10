@@ -4,6 +4,7 @@ import { UserNav } from "./components/user-nav";
 import { Sidebar } from "./components/sidebar";
 import { currentRole, currentUser } from "@/lib/auth";
 import { use } from "react";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "Protected Routes",
@@ -16,6 +17,9 @@ export default async function ProtectedLayout({
 }) {
   const user = await currentUser();
   const role = await currentRole();
+  if(!user){
+    redirect('/')
+  }
   return (
     <div className="hidden md:block">
       <div className="border-b">

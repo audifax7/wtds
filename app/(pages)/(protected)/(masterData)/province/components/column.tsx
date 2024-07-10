@@ -10,7 +10,7 @@ import moment from "moment";
 export const columns: ColumnDef<any>[] = [
   {
     accessorKey: "name",
-    header: "Names",
+    header: "Province Names",
   },
 
   {

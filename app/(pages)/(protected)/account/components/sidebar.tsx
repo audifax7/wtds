@@ -14,7 +14,7 @@ export function AccountSidebar({ className }: AccountSidebarProps) {
           </h2>
           <div className="space-y-1">
             <Link href={"/account/staff"}>
-              <Button variant="secondary" className="w-full justify-start">
+              <Button variant="ghost" className="w-full justify-start">
                 Staff
               </Button>
             </Link>

@@ -62,12 +62,12 @@ export function FeedbackForm({}) {
               name="content"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Content </FormLabel>
+                  <FormLabel>Comment </FormLabel>
                   <FormControl>
                     <Textarea
                       {...field}
                       disabled={isPending}
-                      placeholder="add content"
+                      placeholder="add comment"
                     />
                   </FormControl>
                   <FormMessage />

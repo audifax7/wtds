@@ -15,7 +15,7 @@ export function WaterSourceSidebar({ className }: WaterSourceSidebarProps) {
           </h2>
           <div className="space-y-1">
             <Link href={"/source/open"}>
-              <Button variant="secondary" className="w-full justify-start">
+              <Button variant="ghost" className="w-full justify-start">
                 OPENED
               </Button>
             </Link>
