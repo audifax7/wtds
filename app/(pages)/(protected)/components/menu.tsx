@@ -96,15 +96,19 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
         >
           CUSTOMERS
         </Link>
+
       ) : null}
-       <Link
-        href="/report/treatement"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        REPORT
-      </Link>
+      {isSupervisor ? (
+        <Link
+          href="/report/treatement"
+          className="text-sm font-medium transition-colors hover:text-primary"
+        >
+          REPORT
+        </Link>
+      ) : null}
+
     </nav>
 
-    
+
   );
 }

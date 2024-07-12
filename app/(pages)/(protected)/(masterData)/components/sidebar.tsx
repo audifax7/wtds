@@ -15,48 +15,48 @@ export function MasterDataSidebar({ className }: MasterDataSidebarProps) {
           <div className="space-y-1">
           <Link href={"/services"}>
               <Button variant="ghost" className="w-full justify-start">
-                Services
+                SERVICES
               </Button>
             </Link>
             <Link href={"/chemical"}>
               <Button variant="ghost" className="w-full justify-start">
-                Chemicals
+                CHEMICAL
               </Button>
             </Link>
 
             <Link href={"/line"}>
               <Button variant="ghost" className="w-full justify-start">
-                Lines
+                LINES
               </Button>
             </Link>
             <Link href={"/source"}>
               <Button variant="ghost" className="w-full justify-start">
-                Water source
+                WATER SOURCE
               </Button>
             </Link>
             <Link href={"/province"}>
               <Button variant="ghost" className="w-full justify-start">
-                Provinces
+                PROVINCES
               </Button>
             </Link>
             <Link href={"/district"}>
               <Button variant="ghost" className="w-full justify-start">
-                Districts
+                DISTRICTS
               </Button>
             </Link>
             <Link href={"/sector"}>
               <Button variant="ghost" className="w-full justify-start">
-                Sectors
+                SECTORS
               </Button>
             </Link>
             <Link href={"/cell"}>
               <Button variant="ghost" className="w-full justify-start">
-                Cells
+                CELLS
               </Button>
             </Link>
             <Link href={"/village"}>
               <Button variant="ghost" className="w-full justify-start">
-                Villages
+                VILLAGES
               </Button>
             </Link>
 

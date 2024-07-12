@@ -17,13 +17,13 @@ export const openDistributionLine = async (
     return { error: "Invalid fields." };
   }
 
-  const { lineId } = validatedFields.data;
+  const { id } = validatedFields.data;
 
-  await db.distribution.create({
+  await db.distribution.update({
+    where:{id},
     data: {
       isOpen: true,
       openTime: new Date(),
-      lineId,
       userId: user.id,
     },
   });

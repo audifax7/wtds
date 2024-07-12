@@ -16,6 +16,11 @@ export function DistributionLineSidebar({
             WASAC DISTRIBUTION
           </h2>
           <div className="space-y-1">
+          <Link href={"/distribution/schedule"}>
+              <Button variant="ghost" className="w-full justify-start">
+                SCHEDULE
+              </Button>
+            </Link>
             <Link href={"/distribution/open"}>
               <Button variant="ghost" className="w-full justify-start">
                 OPENED

@@ -193,7 +193,8 @@ export const AddWaterSourceSchema = z.object({
   cellId: z.optional(z.string()),
   villageId: z.string().min(1, {
     message: "Please select village, required.",
-  }),});
+  }),
+});
 
 export const AddProvinceSchema = z.object({
   name: z.string().min(1, {
@@ -257,8 +258,18 @@ export const CloseWaterSourceSchema = z.object({
 });
 
 export const OpenDistributionLineSchema = z.object({
-  lineId: z.string().min(1, {
+  id: z.string().min(1, {
     message: "Please select line, required.",
+  }),
+});
+
+export const ScheduleDistributionLineSchema = z.object({
+  lineId: z.string().min(1, {
+    message: "Please select line id, required.",
+  }),
+  quantity: z.number(),
+  scheduleDate:  z.date({
+    required_error: "A schedule date is required.",
   }),
 });
 
@@ -266,7 +277,15 @@ export const CloseDistributionLineSchema = z.object({
   id: z.string().min(1, {
     message: "Please select line id, required.",
   }),
-  quantity: z.number(),
+});
+
+export const DistributionLineCommentSchema = z.object({
+  id: z.string().min(1, {
+    message: "Please select line id, required.",
+  }),
+  comment: z.string().min(1, {
+    message: "Please enter comment, required.",
+  }),
 });
 
 export const AddIssueSchema = z.object({

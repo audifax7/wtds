@@ -16,22 +16,25 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState, useTransition } from "react";
-import { CloseDistributionLineSchema } from "@/schemas";
+import { DistributionLineCommentSchema } from "@/schemas";
 import Spinner from "@/components/spinner";
 import FormError from "@/components/form-error";
 import FormSuccess from "@/components/form-success";
 import { useSession } from "next-auth/react";
 import { Distribution } from "@prisma/client";
 import { useIsClient } from "@/hooks/use-is-client";
-import { closeDistributionLine } from "@/actions/close-distribution-line";
+import { openDistributionLine } from "@/actions/open-distribution-line";
+import { Textarea } from "@/components/ui/textarea";
+import { comment } from "postcss";
+import { distributionLineComment } from "@/actions/distribution-line-comment";
 
-interface CloseDistributionLinePageProps {
+interface DistributionLineCommentPageProps {
   distribution: Distribution;
 }
 
-export function CloseDistributionLineForm({
+export function DistributionLineCommentForm({
   distribution,
-}: CloseDistributionLinePageProps) {
+}: DistributionLineCommentPageProps) {
   const { update } = useSession();
 
   const [error, setError] = useState<string | undefined>();
@@ -41,19 +44,20 @@ export function CloseDistributionLineForm({
 
   const isClient = useIsClient();
 
-  const form = useForm<z.infer<typeof CloseDistributionLineSchema>>({
-    resolver: zodResolver(CloseDistributionLineSchema),
+  const form = useForm<z.infer<typeof DistributionLineCommentSchema>>({
+    resolver: zodResolver(DistributionLineCommentSchema),
     defaultValues: {
       id: distribution.id,
+      comment:distribution.comment || undefined,
     },
   });
 
   const onSubmit = async (
-    values: z.infer<typeof CloseDistributionLineSchema>
+    values: z.infer<typeof DistributionLineCommentSchema>
   ) => {
     try {
       startTransition(async () => {
-        const data = await closeDistributionLine(values);
+        const data = await distributionLineComment(values);
 
         if (data.error) {
           setError(data.error);
@@ -78,7 +82,25 @@ export function CloseDistributionLineForm({
     <div className="">
       <Form {...form}>
         <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
-          
+          <div className="space-y-4">
+          <FormField
+              control={form.control}
+              name="comment"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Comment </FormLabel>
+                  <FormControl>
+                    <Textarea
+                      {...field}
+                      disabled={isPending}
+                      placeholder="share comment or changes"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           {error && <FormError message={error} />}
           {success && <FormSuccess message={success} />}
           <Button

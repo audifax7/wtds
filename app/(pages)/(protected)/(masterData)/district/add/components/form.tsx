@@ -20,7 +20,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { useState, useTransition } from "react";
 import { AddDistrictSchema } from "@/schemas";
 import Spinner from "@/components/spinner";

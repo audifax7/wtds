@@ -4,17 +4,18 @@ import { currentUser } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
 import Link from "next/link";
-import { OpenWaterSource } from "./components/opened";
+import { Scheduled } from "./components/scheduled";
+import { UserRole } from "@prisma/client";
 
 export const metadata: Metadata = {
-  title: "DISTRIBUTION LINE",
+  title: "SCHEDULED DISTRIBUTION LINE",
 };
 
 export default async function OpenDistributionLinePage() {
   const user = await currentUser();
-  const opens: any = await db.distribution.findMany({
+  const scheduled: any = await db.distribution.findMany({
     where: {
-      isOpen: true,
+      isOpen: null,
     },
     include: {
       line: true,
@@ -22,22 +23,28 @@ export default async function OpenDistributionLinePage() {
     },
   });
 
+  const isSupervisor= user.role=== UserRole.SUPERVISOR;
+
   return (
     <>
       <div className="flex items-center justify-between space-y-2 pb-4">
         <h2 className="text-3xl font-bold tracking-tight">
-          OPEN DISTRIBUTION LINE
+          SCHEDULE DISTRIBUTION LINE
         </h2>
         <div className="flex items-center space-x-2">
-          {/* <Link href={"/distribution/open/add"}>
-            <Button>
-              <PlusCircle />
-              <span className="pl-2">Add new</span>
-            </Button>
-          </Link> */}
+          {isSupervisor ?
+           <Link href={"/distribution/schedule/add"}>
+           <Button>
+             <PlusCircle />
+             <span className="pl-2">Add new</span>
+           </Button>
+         </Link>
+         :null
+        }
+         
         </div>
       </div>
-      <OpenWaterSource opens={opens} />
+      <Scheduled scheduled={scheduled} />
     </>
   );
 }

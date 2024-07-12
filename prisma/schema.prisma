@@ -108,7 +108,7 @@ model Service {
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   issues    Issue[]
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @db.Date()
   updatedAt DateTime @updatedAt
 }
 
@@ -117,7 +117,7 @@ model Line {
   name          String         @unique
   userId        String
   user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt     DateTime       @default(now())
+  createdAt     DateTime       @default(now()) @db.Date()
   updatedAt     DateTime       @updatedAt
   distributions Distribution[]
 }
@@ -127,7 +127,7 @@ model Chemical {
   name       String      @unique
   userId     String
   user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt  DateTime    @default(now())
+  createdAt  DateTime    @default(now()) @db.Date()
   updatedAt  DateTime    @updatedAt
   treatments Treatment[]
 }
@@ -140,7 +140,7 @@ model Issue {
   service    Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
   customerId String
   customer   User     @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  createdAt  DateTime @default(now())
+  createdAt  DateTime @default(now()) @db.Date()
   updatedAt  DateTime @updatedAt
 }
 
@@ -154,7 +154,7 @@ model SourceAction {
   source    Source    @relation(fields: [sourceId], references: [id], onDelete: Cascade)
   userId    String
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime  @default(now())
+  createdAt DateTime  @default(now()) @db.Date()
   updatedAt DateTime  @updatedAt
 }
 
@@ -164,7 +164,7 @@ model Province {
   userId    String
   user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   districts District[]
-  createdAt DateTime   @default(now())
+  createdAt DateTime   @default(now()) @db.Date()
   updatedAt DateTime   @updatedAt
 }
 
@@ -176,7 +176,7 @@ model District {
   userId     String
   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   sectors    Sector[]
-  createdAt  DateTime @default(now())
+  createdAt  DateTime @default(now()) @db.Date()
   updatedAt  DateTime @updatedAt
 }
 
@@ -188,7 +188,7 @@ model Sector {
   userId     String
   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   cells      Cell[]
-  createdAt  DateTime @default(now())
+  createdAt  DateTime @default(now()) @db.Date()
   updatedAt  DateTime @updatedAt
 }
 
@@ -200,7 +200,7 @@ model Cell {
   userId    String
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   villages  Village[]
-  createdAt DateTime  @default(now())
+  createdAt DateTime  @default(now()) @db.Date()
   updatedAt DateTime  @updatedAt
 }
 
@@ -212,7 +212,7 @@ model Village {
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   sources   Source[]
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @db.Date()
   updatedAt DateTime @updatedAt
 }
 
@@ -224,7 +224,7 @@ model Source {
   sourceActions SourceAction[]
   villageId     String
   village       Village        @relation(fields: [villageId], references: [id], onDelete: Cascade)
-  createdAt     DateTime       @default(now())
+  createdAt     DateTime       @default(now()) @db.Date()
   updatedAt     DateTime       @updatedAt
 }
 
@@ -241,7 +241,7 @@ model Treatment {
   chemical                     Chemical @relation(fields: [chemicalId], references: [id], onDelete: Cascade)
   userId                       String
   user                         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt                    DateTime @default(now())
+  createdAt                    DateTime @default(now()) @db.Date()
   updatedAt                    DateTime @updatedAt
 }
 
@@ -250,22 +250,24 @@ model Regulation {
   content   String
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @db.Date()
   updatedAt DateTime @updatedAt
 }
 
 model Distribution {
-  id        String    @id @default(cuid())
-  isOpen    Boolean
-  openTime  DateTime
-  closeTime DateTime?
-  quantity  Int?
-  lineId    String
-  line      Line      @relation(fields: [lineId], references: [id], onDelete: Cascade)
-  userId    String
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id           String    @id @default(cuid())
+  isOpen       Boolean?
+  openTime     DateTime?
+  closeTime    DateTime?
+  scheduleDate DateTime @db.Date()
+  quantity     Int
+  comment      String?
+  lineId       String
+  line         Line      @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime  @default(now()) @db.Date()
+  updatedAt    DateTime  @updatedAt
 }
 
 model Feedback {
@@ -273,6 +275,6 @@ model Feedback {
   content   String
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @db.Date()
   updatedAt DateTime @updatedAt
 }

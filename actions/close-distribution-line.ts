@@ -17,7 +17,7 @@ export const closeDistributionLine = async (
     return { error: "Invalid fields." };
   }
 
-  const { id, quantity } = validatedFields.data;
+  const { id } = validatedFields.data;
 
   await db.distribution.update({
     where: {
@@ -25,7 +25,6 @@ export const closeDistributionLine = async (
     },
     data: {
       isOpen: false,
-      quantity,
       closeTime: new Date(),
       userId: user.id,
     },
