@@ -85,7 +85,7 @@ export function ProvinceForm() {
             disabled={isPending}
             className="w-52 hover:bg-sky-400"
           >
-            Create new service
+            Create new province
           </Button>
         </form>
       </Form>

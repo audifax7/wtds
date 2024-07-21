@@ -70,7 +70,7 @@ export function ServiceForm() {
                       {...field}
                       disabled={isPending}
                       type="text"
-                      placeholder="Your Name"
+                      placeholder="provide the name of service you want"
                     />
                   </FormControl>
                   <FormMessage />

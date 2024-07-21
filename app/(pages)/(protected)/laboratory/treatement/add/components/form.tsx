@@ -48,10 +48,6 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
     defaultValues: {
       chemicalId: "",
       domesticWaterUsed: "",
-      rowWater: 0,
-      rowWaterTurbidityAverage: 0,
-      treatedWater: 0,
-      TreatedWaterTurbidityAverage: 0,
     },
   });
 

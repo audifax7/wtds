@@ -142,14 +142,7 @@ const RegisterForm = () => {
                     />
                   </FormControl>
                   <FormMessage />
-                  <Button
-                    size="sm"
-                    variant="link"
-                    asChild
-                    className="px-0 text-muted-foreground"
-                  >
-                    <Link href="/auth/reset">Forgot your password?</Link>
-                  </Button>
+                
                 </FormItem>
               )}
             />
