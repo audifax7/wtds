@@ -24,6 +24,18 @@ export function LaboratorySidebar({ className }: LaboratorySidebarProps) {
                 TREATEMENT
               </Button>
             </Link>
+
+            <Link href={"/laboratory/inventory"}>
+              <Button variant="ghost" className="w-full justify-start">
+                INVENTORY
+              </Button>
+            </Link>
+
+            <Link href={"/laboratory/equipment"}>
+              <Button variant="ghost" className="w-full justify-start">
+                EQUIPMENT STATUS
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

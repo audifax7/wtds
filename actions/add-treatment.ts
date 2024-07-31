@@ -24,6 +24,8 @@ export const addTreatement = async (
     rowWater,
     rowWaterTurbidityAverage,
     treatedWater,
+    phLevel,
+    chemicalQuantity
   } = validatedFields.data;
 
   await db.treatment.create({
@@ -35,6 +37,8 @@ export const addTreatement = async (
       rowWaterTurbidityAverage,
       treatedWater,
       TreatedWaterTurbidityAverage,
+      phLevel,
+      chemicalQuantity
     },
   });
 

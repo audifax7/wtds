@@ -32,6 +32,27 @@ export function TreatmentDashboard({
             </div>
           </CardContent>
         </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">TURBIDITY </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">
+              {treatment._sum.TreatedWaterTurbidityAverage}
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">PH LEVEL </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">
+              {treatment._sum.phLevel}
+            </div>
+          </CardContent>
+        </Card>
+      
       </div>
     </div>
   );

@@ -45,6 +45,8 @@ model User {
   lines                 Line[]
   distributions         Distribution[]
   feedbacks             Feedback[]
+  Inventory             Inventory[]
+  Equipment             Equipment[]
 }
 
 model Account {
@@ -130,6 +132,7 @@ model Chemical {
   createdAt  DateTime    @default(now()) @db.Date()
   updatedAt  DateTime    @updatedAt
   treatments Treatment[]
+  Inventory  Inventory[]
 }
 
 model Issue {
@@ -234,6 +237,8 @@ model Treatment {
   rowWaterTurbidityAverage     Decimal
   treatedWater                 Decimal
   TreatedWaterTurbidityAverage Decimal
+  phLevel                      Decimal?
+  chemicalQuantity             Int      @default(0)
   domesticWaterUsed            String
   rsbRecommandation            String?
   chemicalId                   String
@@ -259,7 +264,7 @@ model Distribution {
   isOpen       Boolean?
   openTime     DateTime?
   closeTime    DateTime?
-  scheduleDate DateTime @db.Date()
+  scheduleDate DateTime  @db.Date()
   quantity     Int
   comment      String?
   lineId       String
@@ -273,6 +278,28 @@ model Distribution {
 model Feedback {
   id        String   @id @default(cuid())
   content   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @db.Date()
+  updatedAt DateTime @updatedAt
+}
+
+model Inventory {
+  id           String   @id @default(cuid())
+  quantity     Int
+  usedQuantity Int      @default(0)
+  chemicalId   String
+  chemical     Chemical @relation(fields: [chemicalId], references: [id], onDelete: Cascade)
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime @default(now()) @db.Date()
+  updatedAt    DateTime @updatedAt
+}
+
+model Equipment {
+  id        String   @id @default(cuid())
+  status    String
+  name      String   
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now()) @db.Date()

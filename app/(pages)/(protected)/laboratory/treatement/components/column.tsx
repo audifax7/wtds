@@ -32,8 +32,17 @@ export const columns: ColumnDef<any>[] = [
     header: "Domestic WaterUsed",
   },
   {
+    accessorKey: "phLevel",
+    header: "pH Level",
+  },
+  {
     accessorKey: "chemical.name",
     header: "Chemical used",
+  },
+
+  {
+    accessorKey: "chemicalQuantity",
+    header: "Chemical in (mg/L)",
   },
   {
     accessorKey: "approved",

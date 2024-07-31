@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { DataTableRowActionsLine } from "./data-table-row-actions";
+import {  DataTableRowActionsEquipment } from "./data-table-row-actions";
 import moment from "moment";
 
 // This type is used to define the shape of our data.
@@ -10,7 +10,11 @@ import moment from "moment";
 export const columns: ColumnDef<any>[] = [
   {
     accessorKey: "name",
-    header: "Distribution location",
+    header: "Names",
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
   },
 
   {
@@ -25,9 +29,9 @@ export const columns: ColumnDef<any>[] = [
       return createdAt;
     },
   },
-  // {
-  //   id: "actions",
-  //   accessorKey: "Action",
-  //   cell: ({ row }) => <DataTableRowActionsLine row={row} />,
-  // },
+  {
+    id: "actions",
+    accessorKey: "Action",
+    cell: ({ row }) => <DataTableRowActionsEquipment row={row} />,
+  },
 ];

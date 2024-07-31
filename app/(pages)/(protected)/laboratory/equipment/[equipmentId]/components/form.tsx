@@ -17,19 +17,20 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState, useTransition } from "react";
 import { useIsClient } from "@/hooks/use-is-client";
-import { EditServicesSchema, SettingsSchema } from "@/schemas";
 import Spinner from "@/components/spinner";
 import FormError from "@/components/form-error";
 import FormSuccess from "@/components/form-success";
 import { useSession } from "next-auth/react";
-import { Service, User, UserRole } from "@prisma/client";
-import { editService } from "@/actions/edit-service";
+import {  Equipment } from "@prisma/client";
+import { EditEquipmentSchema } from "@/schemas";
+import { editEquipment } from "@/actions/edit-equipment";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-interface EditServicePageProps {
-  service: Service;
+interface EditEquipmentPageProps {
+  equipment: Equipment;
 }
 
-export function EditServiceForm({ service }: EditServicePageProps) {
+export function EditEquipmentForm({ equipment }: EditEquipmentPageProps) {
   const { update } = useSession();
 
   const [error, setError] = useState<string | undefined>();
@@ -39,18 +40,18 @@ export function EditServiceForm({ service }: EditServicePageProps) {
 
   const isClient = useIsClient();
 
-  const form = useForm<z.infer<typeof EditServicesSchema>>({
-    resolver: zodResolver(EditServicesSchema),
+  const form = useForm<z.infer<typeof EditEquipmentSchema>>({
+    resolver: zodResolver(EditEquipmentSchema),
     defaultValues: {
-      id: service.id,
-      name: service?.name || undefined,
+      id: equipment.id,
+      status: equipment?.status || undefined,
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof EditServicesSchema>) => {
+  const onSubmit = async (values: z.infer<typeof EditEquipmentSchema>) => {
     try {
       startTransition(async () => {
-        const data = await editService(values);
+        const data = await editEquipment(values);
 
         if (data.error) {
           setError(data.error);
@@ -76,20 +77,26 @@ export function EditServiceForm({ service }: EditServicePageProps) {
       <Form {...form}>
         <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
           <div className="space-y-4">
-            <FormField
+          <FormField
               control={form.control}
-              name="name"
+              name="status"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="Your Name"
-                      disabled={isPending}
-                      type="text"
-                    />
-                  </FormControl>
+                  <FormLabel>domestic Water Used</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder={equipment.status} />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="OPERATION">OPERATION</SelectItem>
+                      <SelectItem value="UNDER MAINTENANCE">UNDER MAINTENANCE</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}

@@ -1,4 +1,5 @@
 import LoginForm from "@/components/auth/login-form";
+import Image from "next/image";
 import { Suspense } from "react";
 
 export const metadata = {
@@ -8,9 +9,19 @@ export const metadata = {
 export default function LoginPage() {
   return (<div>
     <Suspense>
-      <LoginForm />
-    </Suspense>
+      {/* <Image
+        layout="fill"
+        objectFit="cover"
+        quality={100}
 
+        src={"/images/wasac.jpg"}
+        alt="WASAC Logo"
+      /> */}
+
+
+      <LoginForm />
+
+    </Suspense>
 
   </div>);
 }

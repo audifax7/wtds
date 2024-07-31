@@ -19,14 +19,40 @@ export const approveTreatement = async (
 
   const { id } = validatedFields.data;
 
-  await db.treatment.update({
+  const treatment = await db.treatment.findUnique({
     where: {
       id,
     },
-    data: {
-      approved: true,
+  });
+
+  const inventory = await db.inventory.findFirst({
+    where: {
+      chemicalId: treatment?.chemicalId,
     },
   });
 
-  return { success: "Treatement decision submitted Successfully!" };
+  if (inventory && treatment) {
+    const usedQuantity = treatment.chemicalQuantity + inventory.usedQuantity;
+    await db.inventory.update({
+      where: {
+        id: inventory.id,
+      },
+      data: {
+        usedQuantity,
+      },
+    });
+
+    await db.treatment.update({
+      where: {
+        id,
+      },
+      data: {
+        approved: true,
+      },
+    });
+
+    return { success: "Treatement decision submitted Successfully!" };
+  } else {
+    return { error: "Chemical to be used is not exist!" };
+  }
 };

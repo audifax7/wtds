@@ -81,14 +81,14 @@ export function ScheduleDistributionLineForm({ lines }: ScheduleDistributionLine
               name="lineId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Customer line</FormLabel>
+                  <FormLabel>Distribution location</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select a customer line" />
+                        <SelectValue placeholder="Select a distribution locaion" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>

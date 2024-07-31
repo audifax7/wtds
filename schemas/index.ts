@@ -129,12 +129,21 @@ export const AddTreatementSchema = z.object({
   rowWater: z.number(),
   rowWaterTurbidityAverage: z.number(),
   treatedWater: z.number(),
+  phLevel: z.number(),
+  chemicalQuantity: z.number(),
   TreatedWaterTurbidityAverage: z.number(),
   chemicalId: z.string().min(1, {
     message: "Please select chemical, required.",
   }),
   domesticWaterUsed: z.string().min(1, {
     message: "Please enter your domesticWaterUsed, required.",
+  }),
+});
+
+export const AddInventorySchema = z.object({
+  quantity: z.number(),
+  chemicalId: z.string().min(1, {
+    message: "Please select chemical, required.",
   }),
 });
 
@@ -180,6 +189,14 @@ export const EditSourceSchema = z.object({
 export const AddChemicalSchema = z.object({
   name: z.string().min(1, {
     message: "Please enter your name, required.",
+  }),
+});
+export const AddEquipmentSchema = z.object({
+  name: z.string().min(1, {
+    message: "Please enter your name, required.",
+  }),
+  status: z.string().min(1, {
+    message: "Please enter your status, required.",
   }),
 });
 
@@ -268,7 +285,7 @@ export const ScheduleDistributionLineSchema = z.object({
     message: "Please select line id, required.",
   }),
   quantity: z.number(),
-  scheduleDate:  z.date({
+  scheduleDate: z.date({
     required_error: "A schedule date is required.",
   }),
 });
@@ -311,5 +328,10 @@ export const AddFeedbackSchema = z.object({
 
 export const EditChemicalsSchema = z.object({
   name: z.optional(z.string()),
+  id: z.string(),
+});
+
+export const EditEquipmentSchema = z.object({
+  status: z.optional(z.string()),
   id: z.string(),
 });

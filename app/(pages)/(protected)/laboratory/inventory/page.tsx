@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import { Treatements } from "./components/treatements";
+import { Inventories } from "./components/inventorories";
 import { PlusCircle } from "lucide-react";
 import Link from "next/link";
 import { db } from "@/lib/db";
@@ -9,31 +9,31 @@ import { UserRole } from "@prisma/client";
 import moment from "moment";
 
 export const metadata: Metadata = {
-  title: "TREATEMENTS",
+  title: "CHEMICAL INVENTORY",
 };
 
-export default async function TreatementsPage() {
+export default async function InventorysPage() {
   const user = await currentUser();
-  const treatements: any = await db.treatment.findMany({
+  const inventories: any = await db.inventory.findMany({
     include: {
       chemical: true,
       user: true
     },
   });
 
-  const isLab = user.role === UserRole.LABORATOR;
+  const isSupervisor = user.role === UserRole.SUPERVISOR;
 
   return (
     <>
       <div className="">
         <div className="flex items-center justify-between space-y-2 pb-4">
-          <h2 className="text-3xl font-bold tracking-tight"></h2>Kimisagara WTP | Date { moment().format('LL')} | Time {moment().format('LTS')} | Techinicain : {user.name}
+          <h2 className="text-3xl font-bold tracking-tight"></h2>Kimisagara WTP Inventory| Date { moment().format('LL')} | Time {moment().format('LTS')} | Techinicain : {user.name}
           <div className="flex items-center space-x-2">
-            {isLab ?
-              <Link href={"/laboratory/treatement/add"}>
+            {isSupervisor ?
+              <Link href={"/laboratory/inventory/add"}>
                 <Button>
                   <PlusCircle />
-                  <span className="pl-2">ADD TREATEMENT</span>
+                  <span className="pl-2">ADD INVENTORY</span>
                 </Button>
               </Link> :
               null
@@ -41,7 +41,7 @@ export default async function TreatementsPage() {
 
           </div>
         </div>
-        <Treatements user={user} treatements={treatements} />
+        <Inventories user={user} inventories={inventories} />
       </div>
     </>
   );

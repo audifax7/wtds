@@ -131,7 +131,9 @@ export default async function DashboardPage() {
     },
     _sum: {
       rowWater: true,
-      treatedWater: true
+      treatedWater: true,
+      phLevel:true,
+      TreatedWaterTurbidityAverage:true
     }
   })
 

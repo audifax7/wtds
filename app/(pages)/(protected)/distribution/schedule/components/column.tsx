@@ -10,7 +10,7 @@ import { DataTableRowActionsCloseWaterSource } from "./data-table-row-actions";
 export const columns: ColumnDef<any>[] = [
   {
     accessorKey: "line.name",
-    header: "Distribution line",
+    header: "Distribution location",
   },
   {
     accessorKey: "quantity",

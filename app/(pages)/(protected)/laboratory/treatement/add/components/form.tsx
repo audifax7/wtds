@@ -153,6 +153,25 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
 
             <FormField
               control={form.control}
+              name="phLevel"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>pH Level</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      onChange={(event) => field.onChange(+event.target.value)}
+                      disabled={isPending}
+                      type="number"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
               name="domesticWaterUsed"
               render={({ field }) => (
                 <FormItem>
@@ -180,7 +199,7 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
               name="chemicalId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Service</FormLabel>
+                  <FormLabel>Chemical</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -198,6 +217,27 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
                       ))}
                     </SelectContent>
                   </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="chemicalQuantity"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                   Chemical Quantity (mg/L)
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      onChange={(event) => field.onChange(+event.target.value)}
+                      disabled={isPending}
+                      type="number"
+                    />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}

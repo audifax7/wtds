@@ -16,7 +16,7 @@ export function DistributionDashboardDashboard({
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">TODAY DISTRIBUTION LINE</CardTitle>
+            <CardTitle className="text-sm font-medium">TODAY DISTRIBUTION LOCATION</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -26,8 +26,7 @@ export function DistributionDashboardDashboard({
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">DISTRIBUTION LINE QUANTITY</CardTitle>
-          </CardHeader>
+LOCATION          </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
               {distributedLineQuantity._sum.quantity}
@@ -36,7 +35,7 @@ export function DistributionDashboardDashboard({
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">TODAY DISTRIBUTION LINE QUANTITY</CardTitle>
+            <CardTitle className="text-sm font-medium">TODAY DISTRIBUTION LOCATION QUANTITY</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
