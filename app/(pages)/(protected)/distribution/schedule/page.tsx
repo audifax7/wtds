@@ -36,7 +36,7 @@ export default async function OpenDistributionLinePage() {
            <Link href={"/distribution/schedule/add"}>
            <Button>
              <PlusCircle />
-             <span className="pl-2">Add new</span>
+             <span className="pl-2">Add new schedule</span>
            </Button>
          </Link>
          :null

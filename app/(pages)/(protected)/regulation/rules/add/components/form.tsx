@@ -69,12 +69,12 @@ export function RuleForm({}) {
               name="content"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Issue </FormLabel>
+                  <FormLabel>Rules </FormLabel>
                   <FormControl>
                     <Textarea
                       {...field}
                       disabled={isPending}
-                      placeholder="add content"
+                      placeholder="add rules to follow"
                     />
                   </FormControl>
                   <FormMessage />
@@ -89,7 +89,7 @@ export function RuleForm({}) {
             disabled={isPending}
             className="w-52 hover:bg-sky-400"
           >
-            CREATE NEW
+            CREATE NEW RULE
           </Button>
         </form>
       </Form>

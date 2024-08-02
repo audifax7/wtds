@@ -13,9 +13,9 @@ export default async function ScheduleDistributionLinePage() {
     <>
       <div className="space-y-6">
         <div>
-          <h3 className="text-lg font-medium">SCHEDULE DISTRIBUTION LINE</h3>
+          <h3 className="text-lg font-medium">SCHEDULE DISTRIBUTION LOCATION</h3>
           <p className="text-sm text-muted-foreground">
-            Fill this form to register schedule distribution line.
+            Fill this form to register schedule distribution location.
           </p>
         </div>
         <Separator />

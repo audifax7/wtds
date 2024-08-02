@@ -7,12 +7,12 @@ export const metadata = {
 };
 
 export default function LoginPage() {
-  return (<div>
+  return (<div >
     <Suspense>
       {/* <Image
         layout="fill"
         objectFit="cover"
-        quality={100}
+        quality={10}
 
         src={"/images/wasac.jpg"}
         alt="WASAC Logo"

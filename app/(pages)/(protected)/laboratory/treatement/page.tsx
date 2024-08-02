@@ -33,7 +33,7 @@ export default async function TreatementsPage() {
               <Link href={"/laboratory/treatement/add"}>
                 <Button>
                   <PlusCircle />
-                  <span className="pl-2">ADD TREATEMENT</span>
+                  <span className="pl-2">Set Chemicals</span>
                 </Button>
               </Link> :
               null

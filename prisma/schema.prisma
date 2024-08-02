@@ -239,7 +239,7 @@ model Treatment {
   TreatedWaterTurbidityAverage Decimal
   phLevel                      Decimal?
   chemicalQuantity             Int      @default(0)
-  domesticWaterUsed            String
+  domesticWaterUsed            String?
   rsbRecommandation            String?
   chemicalId                   String
   approved                     Boolean  @default(false)

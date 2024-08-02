@@ -18,7 +18,7 @@ export function DistributionLineSidebar({
           <div className="space-y-1">
           <Link href={"/distribution/schedule"}>
               <Button variant="ghost" className="w-full justify-start">
-                SCHEDULE
+                OPEN DISTRIBUTION SCHEDULE
               </Button>
             </Link>
             <Link href={"/distribution/open"}>
@@ -29,7 +29,7 @@ export function DistributionLineSidebar({
 
             <Link href={"/distribution/close"}>
               <Button variant="ghost" className="w-full justify-start">
-                CLOSED
+              SEE THE ALL CLOSED LOCATIONS
               </Button>
             </Link>
           </div>

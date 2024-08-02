@@ -86,7 +86,7 @@ export function CloseDistributionLineForm({
             type="submit"
             className=" hover:bg-sky-400"
           >
-            Submit to close distribution line
+           CLOSE THE LOCATION
           </Button>
         </form>
       </Form>

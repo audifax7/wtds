@@ -34,7 +34,7 @@ export function DataTableRowActionsCloseWaterSource<TData>({
       <DropdownMenuContent align="end" className="w-[160px]">
         <DropdownMenuItem>
           <Link href={`/distribution/open/${distribution.id}`}>
-            CLOSE LINE
+            CLOSE LOCATION
           </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>

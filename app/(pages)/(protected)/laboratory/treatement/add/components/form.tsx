@@ -170,7 +170,7 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
               )}
             />
 
-            <FormField
+            {/* <FormField
               control={form.control}
               name="domesticWaterUsed"
               render={({ field }) => (
@@ -193,7 +193,7 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={form.control}
               name="chemicalId"

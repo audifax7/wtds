@@ -86,7 +86,7 @@ const LoginForm = () => {
     <Suspense>
 
       <CardWrapper
-        headerLabel="Welcome back to WASAC please enter you details"
+        headerLabel="Welcome back to WASAC!"
         backButtonLabel="Don't have an account?"
         backButtonHref="/register"
         showSocial

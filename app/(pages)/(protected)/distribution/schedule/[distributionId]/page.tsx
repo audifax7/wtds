@@ -25,9 +25,9 @@ export default async function OpenDistributionLinePage({
     <>
       <div className="space-y-6">
         <div>
-          <h3 className="text-lg font-medium">OPEN DISTRIBUTION LINE</h3>
+          <h3 className="text-lg font-medium">OPEN DISTRIBUTION LOCAITON</h3>
           <p className="text-sm text-muted-foreground">
-            Fill this form to register close distribution line.
+            Fill this form to register close distribution location.
           </p>
         </div>
         <Separator />

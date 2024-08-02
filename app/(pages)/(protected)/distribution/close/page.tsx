@@ -24,7 +24,7 @@ export default async function ClosedeDistributionLinePage() {
     <>
       <div className="flex items-center justify-between space-y-2 pb-4">
         <h2 className="text-3xl font-bold tracking-tight">
-          CLOSED DISTRIBUTION LINE
+          CLOSED DISTRIBUTION LOCATION
         </h2>
       </div>
       <ClosedDistributionLine closed={closed} />

@@ -135,9 +135,10 @@ export const AddTreatementSchema = z.object({
   chemicalId: z.string().min(1, {
     message: "Please select chemical, required.",
   }),
-  domesticWaterUsed: z.string().min(1, {
-    message: "Please enter your domesticWaterUsed, required.",
-  }),
+  domesticWaterUsed: z.string().optional()
+  // .string().min(1, {
+  //   message: "Please enter your domesticWaterUsed, required.",
+  // }),
 });
 
 export const AddInventorySchema = z.object({

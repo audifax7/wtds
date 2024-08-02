@@ -90,7 +90,7 @@ export function OpenDistributionLineForm({
             type="submit"
             className=" hover:bg-sky-400"
           >
-            Submit to close distribution line
+            OPEN THE LOCATION
           </Button>
         </form>
       </Form>

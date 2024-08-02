@@ -72,7 +72,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
         </Link>
       ) : null}
 
-      {isRSB ? (
+      {isRSB || isLab || isSupervisor ? (
         <Link
           href="/regulation/rules"
           className="text-sm font-medium transition-colors hover:text-primary"
@@ -85,7 +85,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
           href="/distribution/open"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
-          DISTRIBUTION
+          DISTRIBUTION ACTIVITIES
         </Link>
       ) : null}
 

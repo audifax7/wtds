@@ -1,4 +1,6 @@
+import { currentUser } from "@/lib/auth";
 import { RegulationSidebar } from "./components/sidebar";
+import { UserRole } from "@prisma/client";
 
 export const metadata = {
   title: "Protected Routes",
@@ -9,6 +11,7 @@ export default async function AccountLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <div className="grid lg:grid-cols-5">
       <RegulationSidebar className="hidden lg:block" />

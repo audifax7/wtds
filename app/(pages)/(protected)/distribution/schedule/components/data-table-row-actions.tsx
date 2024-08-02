@@ -34,12 +34,12 @@ export function DataTableRowActionsCloseWaterSource<TData>({
       <DropdownMenuContent align="end" className="w-[160px]">
         <DropdownMenuItem>
           <Link href={`/distribution/schedule/${distribution.id}`}>
-            OPEN LINE
+            OPEN LOCATION
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link href={`/distribution/schedule/comment/${distribution.id}`}>
-            COMMENT LINE
+            COMMENT LOCATION
           </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
