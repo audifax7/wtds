@@ -21,7 +21,7 @@ export function LaboratorySidebar({ className }: LaboratorySidebarProps) {
 
             <Link href={"/laboratory/treatement"}>
               <Button variant="ghost" className="w-full justify-start">
-               VIEW TREATEMENT
+               VIEW WTP TREATEMENT
               </Button>
             </Link>
 

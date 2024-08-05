@@ -13,7 +13,10 @@ export const metadata: Metadata = {
 
 export default async function DistributionsPage() {
   const user = await currentUser();
-  const distributions: any =  await db.distribution.findMany({
+  const distributions: any = await db.distribution.findMany({
+    where: {
+      isOpen: false
+    },
     include: {
       line: true,
       user: true,

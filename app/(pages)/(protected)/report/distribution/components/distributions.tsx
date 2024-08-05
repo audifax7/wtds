@@ -38,6 +38,8 @@ export const Distributions = ({ distributions, user }: DistributionsListProps) =
         moment(distribution.createdAt).format("YYYY-MM-DD"),
         distribution.line.name,
         distribution.quantity,
+        moment(distribution.openTime).format("LLL"),
+        moment(distribution.closeTime).format("LLL"),
         distribution.user.name,
       ];
       rows.push(temp);
@@ -55,7 +57,7 @@ export const Distributions = ({ distributions, user }: DistributionsListProps) =
       styles: {
         halign: "left",
         fontSize: 20,
-        textColor: "#ffffff",
+        textColor: "#47afee",
       },
     });
 
@@ -98,13 +100,15 @@ export const Distributions = ({ distributions, user }: DistributionsListProps) =
           "DATE",
           "LINE",
           "QUANTITY",
+          "OPEN AT",
+          "CLOSE AT",
           "OFFICER NAME",
         ],
       ],
       body: rows,
       theme: "striped",
       headStyles: {
-        fillColor: "#343a40",
+        fillColor: "#47afee",
       },
     });
 

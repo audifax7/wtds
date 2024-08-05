@@ -55,6 +55,7 @@ export function TreatementFeedbackForm({
     defaultValues: {
       id: treatement.id,
       rsbRecommandation: treatement?.rsbRecommandation || undefined,
+      rsbStatus:treatement.rsbStatus || undefined
     },
   });
 
@@ -87,6 +88,31 @@ export function TreatementFeedbackForm({
       <Form {...form}>
         <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
           <div className="space-y-4">
+              <FormField
+              control={form.control}
+              name="rsbStatus"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>domestic Water Used</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder={treatement.rsbStatus} />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="APPROVE">APPROVE</SelectItem>
+                      <SelectItem value="REJECT">REJECT</SelectItem>
+                      <SelectItem value="FOLLOW UP">FOLLOW UP</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="rsbRecommandation"
@@ -112,7 +138,7 @@ export function TreatementFeedbackForm({
             type="submit"
             className="w-52 hover:bg-sky-400"
           >
-            SUBMIT CHANGE
+            SUBMIT DECISION
           </Button>
         </form>
       </Form>

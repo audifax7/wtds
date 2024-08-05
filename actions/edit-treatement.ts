@@ -16,15 +16,14 @@ export const editTreatement = async (
   if (!validatedFields.success) {
     return { error: "Invalid fields." };
   }
-
-  const { id, rsbRecommandation } = validatedFields.data;
-
+  const { id, rsbRecommandation,rsbStatus } = validatedFields.data;
   await db.treatment.update({
     where: {
       id,
     },
     data: {
       rsbRecommandation,
+      rsbStatus
     },
   });
 

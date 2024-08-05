@@ -170,6 +170,11 @@ export const EditTreatementSchema = z.object({
     })
   ),
   approved: z.optional(z.boolean()),
+  rsbStatus: z.optional(
+    z.string().min(1, {
+      message: "Please enter your RSB Status, required.",
+    })
+  ),
 });
 
 export const EditServicesSchema = z.object({

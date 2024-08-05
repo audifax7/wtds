@@ -65,7 +65,7 @@ export const Treatements = ({ treatements, user }: TreatementsListProps) => {
       styles: {
         halign: "left",
         fontSize: 20,
-        textColor: "#ffffff",
+        textColor: "#47afee",
       },
     });
 
@@ -116,7 +116,7 @@ export const Treatements = ({ treatements, user }: TreatementsListProps) => {
       body: rows,
       theme: "striped",
       headStyles: {
-        fillColor: "#343a40",
+        fillColor: "#47afee",
       },
     });
 

@@ -24,10 +24,8 @@ export default async function AddTreatementPage({
     <>
       <div className="space-y-6">
         <div>
-          <h3 className="text-lg font-medium">staff account</h3>
-          <p className="text-sm text-muted-foreground">
-            Fill this form to register staff account.
-          </p>
+          <h3 className="text-lg font-medium">RSB FEEDBACK</h3>
+  
         </div>
         <Separator />
         <TreatementFeedbackForm treatement={treatement} />

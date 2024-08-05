@@ -20,9 +20,27 @@ export const columns: ColumnDef<any>[] = [
     header: "QUANTITY",
   },
   {
+    accessorKey: "openTime",
+    header: () => <div className="text-left">OPEN AT</div>,
+    cell: ({ row }) => {
+      const openTime = moment(row.getValue("openTime")).format("LLLL");
+      return openTime;
+    },
+  },
+  {
+    accessorKey: "closeTime",
+    header: () => <div className="text-left">CLOSE AT</div>,
+    cell: ({ row }) => {
+      const closeTime = moment(row.getValue("closeTime")).format("LLLL");
+      return closeTime;
+    },
+  },
+
+  {
     accessorKey: "user.name",
     header: "DISTRIBUTED BY",
   }, 
+
   {
     accessorKey: "createdAt",
     header: () => <div className="text-left">CREATED AT</div>,

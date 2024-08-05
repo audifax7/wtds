@@ -24,7 +24,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
         href="/home"
         className="text-sm font-medium transition-colors hover:text-primary"
       >
-        DASHBOARD
+        Dashboard
       </Link>
       {isAdmin ? (
         <>
@@ -32,13 +32,13 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
             href="/account/staff"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
-            ACCOUNT
+            Account
           </Link>
           <Link
             href="/services"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
-            MASTER DATA
+            Master Data
           </Link>
         </>
       ) : null}
@@ -48,7 +48,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
           href="/source/open"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
-          WATER SOURCE
+          Water Source
         </Link>
       ) : null}
 
@@ -58,7 +58,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
             href="/client/issues"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
-            MY ACCOUNT
+            My Account
           </Link>
         </>
       ) : null}
@@ -68,7 +68,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
           href="/laboratory/source"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
-          LABORATORY
+          Laboratory
         </Link>
       ) : null}
 
@@ -77,7 +77,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
           href="/regulation/rules"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
-          REGULATIONS
+          Regulations
         </Link>
       ) : null}
       {isDistribution || isSupervisor ? (
@@ -85,7 +85,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
           href="/distribution/open"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
-          DISTRIBUTION ACTIVITIES
+          Distribution Activities
         </Link>
       ) : null}
 
@@ -94,7 +94,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
           href="/customer/issues"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
-          CUSTOMERS
+          Customers
         </Link>
 
       ) : null}
@@ -103,7 +103,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
           href="/report/treatement"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
-          REPORT
+          Report
         </Link>
       ) : null}
 

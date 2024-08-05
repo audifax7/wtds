@@ -13,6 +13,7 @@ export default async function CustomersAccountPage() {
   const treatements: any = await db.treatment.findMany({
     where: {
       approved: true,
+      // rsbStatus:"PENDING"
     },
     include: {
       chemical: true,
@@ -24,7 +25,7 @@ export default async function CustomersAccountPage() {
       <div className="">
         <div className="flex items-center justify-between space-y-2 pb-4">
           <h2 className="text-3xl font-bold tracking-tight">
-            WATER TREATEMENTS FROM WASAC
+            WATER TREATEMENTS FROM KWTP
           </h2>
         </div>
         <Treatements user={user} treatements={treatements} />
