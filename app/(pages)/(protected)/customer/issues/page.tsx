@@ -15,6 +15,7 @@ export default async function IssuesPage() {
   const issues: any = await db.issue.findMany({
     include: {
       service: true,
+      customer:true
     },
   });
 

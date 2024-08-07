@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 export default async function OpenDistributionLinePage() {
   const user = await currentUser();
   const scheduled: any = await db.distribution.findMany({
-    where: {
-      isOpen: null,
-    },
+    // where: {
+    //   isOpen: null,
+    // },
     include: {
       line: true,
       user: true,

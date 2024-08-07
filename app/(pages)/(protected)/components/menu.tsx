@@ -32,7 +32,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
             href="/account/staff"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
-            Account
+            Accounts
           </Link>
           <Link
             href="/services"
@@ -68,7 +68,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
           href="/laboratory/source"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
-          Laboratory
+          Laboratory Activities
         </Link>
       ) : null}
 
@@ -77,7 +77,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
           href="/regulation/rules"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
-          Regulations
+          RSB Regulations
         </Link>
       ) : null}
       {isDistribution || isSupervisor ? (

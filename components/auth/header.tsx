@@ -1,7 +1,7 @@
 import Logo from "@/app/(pages)/(protected)/components/logo";
 
 type HeaderProps = {
-  label: string;
+  label?: string;
 };
 
 const Header = ({ label }: HeaderProps) => {

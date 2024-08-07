@@ -11,7 +11,6 @@ export default async function ClosedeDistributionLinePage() {
   const user = await currentUser();
   const closed: any = await db.distribution.findMany({
     where: {
-      userId: user.id,
       isOpen: false,
     },
     include: {

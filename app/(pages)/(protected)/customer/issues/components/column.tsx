@@ -9,6 +9,10 @@ import moment from "moment";
 
 export const columns: ColumnDef<any>[] = [
   {
+    accessorKey: "customer.name",
+    header: "Customer",
+  },
+  {
     accessorKey: "service.name",
     header: "Service",
   },

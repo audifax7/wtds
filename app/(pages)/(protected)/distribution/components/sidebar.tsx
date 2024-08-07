@@ -1,13 +1,17 @@
 import { Button } from "@/components/ui/button";
+import { currentRole } from "@/lib/auth";
 import { cn } from "@/lib/utils";
+import { UserRole } from "@prisma/client";
 import Link from "next/link";
 
 interface DistributionLineSidebarProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+  extends React.HTMLAttributes<HTMLDivElement> { }
 
-export function DistributionLineSidebar({
+export async function DistributionLineSidebar({
   className,
 }: DistributionLineSidebarProps) {
+  const role = await currentRole();
+  const isSupervisor= role=== UserRole.SUPERVISOR;
   return (
     <div className={cn("pb-12", className)}>
       <div className="space-y-4 py-4">
@@ -16,11 +20,19 @@ export function DistributionLineSidebar({
             WASAC DISTRIBUTION
           </h2>
           <div className="space-y-1">
-          <Link href={"/distribution/schedule"}>
-              <Button variant="ghost" className="w-full justify-start">
-                OPEN DISTRIBUTION SCHEDULE
-              </Button>
-            </Link>
+            {isSupervisor ?
+             <Link href={"/distribution/schedule"}>
+             <Button variant="ghost" className="w-full justify-start">
+             MAKE/CREAT A DISTRIBUTION SCHEDULE
+             </Button>
+           </Link>:
+            <Link href={"/distribution/schedule"}>
+            <Button variant="ghost" className="w-full justify-start">
+              VIEW and OPEN DISTRIBUTION SCHEDULE
+            </Button>
+          </Link>
+            }
+           
             <Link href={"/distribution/open"}>
               <Button variant="ghost" className="w-full justify-start">
                 OPENED
@@ -29,7 +41,7 @@ export function DistributionLineSidebar({
 
             <Link href={"/distribution/close"}>
               <Button variant="ghost" className="w-full justify-start">
-              SEE THE ALL CLOSED LOCATIONS
+              SEE ALL CLOSED LOCATIONS
               </Button>
             </Link>
           </div>

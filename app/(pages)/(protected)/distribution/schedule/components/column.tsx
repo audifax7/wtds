@@ -10,28 +10,37 @@ import { DataTableRowActionsCloseWaterSource } from "./data-table-row-actions";
 export const columns: ColumnDef<any>[] = [
   {
     accessorKey: "line.name",
-    header: "Distribution location",
-  },
-  {
-    accessorKey: "quantity",
-    header: "Quantity (m3)",
+    header: "CUSTOMER LOCATION",
   },
 
   {
-    accessorKey: "user.name",
-    header: "Scheduled by",
+    accessorKey: "isOpen",
+    header: "IS OPENED",
   },
   {
-    accessorKey: "scheduleDate",
-    header: () => <div className="text-left">Dchedule date</div>,
+    accessorKey: "user.name",
+    header: "Closed by",
+  },
+  {
+    accessorKey: "openTime",
+    header: () => <div className="text-left">Open time</div>,
     cell: ({ row }) => {
-      const scheduleDate = moment(row.getValue("scheduleDate")).format("LL");
-      return scheduleDate;
+      const openTime = moment(row.getValue("openTime")).format("LLLL");
+      return openTime;
     },
   },
   {
-    accessorKey: "comment",
-    header: "Distribution comment",
+    accessorKey: "closeTime",
+    header: () => <div className="text-left">Close time</div>,
+    cell: ({ row }) => {
+      const closeTime = moment(row.getValue("closeTime")).format("LLLL");
+      return closeTime;
+    },
+  },
+
+  {
+    accessorKey: "quantity",
+    header: "Quantity in Cubic metre",
   },
   {
     id: "actions",

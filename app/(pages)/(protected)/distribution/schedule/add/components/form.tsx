@@ -172,7 +172,7 @@ export function ScheduleDistributionLineForm({ lines }: ScheduleDistributionLine
             disabled={isPending}
             className="w-64 hover:bg-sky-400"
           >
-            Schedule distribution line
+            Submit
           </Button>
         </form>
       </Form>

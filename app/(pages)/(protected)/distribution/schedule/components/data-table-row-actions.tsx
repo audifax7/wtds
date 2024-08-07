@@ -31,10 +31,10 @@ export function DataTableRowActionsCloseWaterSource<TData>({
           <span className="sr-only">Open menu</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[160px]">
+      <DropdownMenuContent align="end" className="w-[260px]">
         <DropdownMenuItem>
           <Link href={`/distribution/schedule/${distribution.id}`}>
-            OPEN LOCATION
+          MANAGE THÉ LOCATION
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
