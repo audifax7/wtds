@@ -68,7 +68,7 @@ export function EquipmentForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Equipment Name</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -97,8 +97,8 @@ export function EquipmentForm() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="OPERATION">OPERATION</SelectItem>
-                      <SelectItem value="UNDER MAINTENANCE">UNDER MAINTENANCE</SelectItem>
+                      <SelectItem value="OPERATIONAL">Operational</SelectItem>
+                      <SelectItem value="UNDER MAINTENANCE">Under Maintenance</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -113,7 +113,7 @@ export function EquipmentForm() {
             disabled={isPending}
             className="w-52 hover:bg-sky-400"
           >
-            Create new equipment
+            Submit
           </Button>
         </form>
       </Form>

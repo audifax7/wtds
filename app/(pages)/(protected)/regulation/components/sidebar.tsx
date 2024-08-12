@@ -21,13 +21,13 @@ export async function RegulationSidebar({ className }: RegulationSidebarProps) {
           <div className="space-y-1">
             <Link href={"/regulation/rules"}>
               <Button variant="ghost" className="w-full justify-start">
-                VIEW WATER QUANTITY STANDARDS
+                Current Water Quality standards
               </Button>
             </Link>
             {isRSB ?
               <Link href={"/regulation/treatement"}>
                 <Button variant="ghost" className="w-full justify-start">
-                  VIEW WTP SAMPLES
+                 View WTP Sample
                 </Button>
               </Link> : null}
 

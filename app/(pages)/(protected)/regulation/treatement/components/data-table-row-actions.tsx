@@ -11,14 +11,14 @@ import { Row, RowExpanding } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 
-interface DataTableRowActionsCloseWaterSourceProps<TData> {
+interface DataTableRowActionsTreatementProps<TData> {
   row: Row<TData>;
 }
 
-export function DataTableRowActionsCloseWaterSource<TData>({
+export function DataTableRowActionsTreatenebt<TData>({
   row,
-}: DataTableRowActionsCloseWaterSourceProps<TData>) {
-  const distribution: any = row.original;
+}: DataTableRowActionsTreatementProps<TData>) {
+  const treatement: any = row.original;
 
   return (
     <DropdownMenu>
@@ -31,16 +31,9 @@ export function DataTableRowActionsCloseWaterSource<TData>({
           <span className="sr-only">Open menu</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[260px]">
+      <DropdownMenuContent align="end" className="w-[160px]">
         <DropdownMenuItem>
-          <Link href={`/distribution/schedule/${distribution.id}`}>
-          OPEN  LOCATION
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href={`/distribution/schedule/comment/${distribution.id}`}>
-            COMMENT LOCATION
-          </Link>
+          <Link href={`/reguration/treatement/${treatement.id}`}>Recommandation</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -23,25 +23,25 @@ export async function DistributionLineSidebar({
             {isSupervisor ?
              <Link href={"/distribution/schedule"}>
              <Button variant="ghost" className="w-full justify-start">
-             MAKE/CREAT A DISTRIBUTION SCHEDULE
+             Create new Schedule
              </Button>
            </Link>:
             <Link href={"/distribution/schedule"}>
             <Button variant="ghost" className="w-full justify-start">
-              VIEW and OPEN DISTRIBUTION SCHEDULE
+              Upcoming deliveries
             </Button>
           </Link>
             }
            
             <Link href={"/distribution/open"}>
               <Button variant="ghost" className="w-full justify-start">
-                OPENED
+                View and Manage Open Locations
               </Button>
             </Link>
 
             <Link href={"/distribution/close"}>
               <Button variant="ghost" className="w-full justify-start">
-              SEE ALL CLOSED LOCATIONS
+              Recent deliveries
               </Button>
             </Link>
           </div>

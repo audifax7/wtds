@@ -21,7 +21,7 @@ export default async function EquipmentPage() {
       <div className="">
         <div className="flex items-center justify-between space-y-2 pb-4">
           <h2 className="text-3xl font-bold tracking-tight">
-            KIMISAGRA WTP EQUIPMENT STATUS
+            KIMISAGRA Lab Equipment Status
           </h2>
           <div className="flex items-center space-x-2">
             <Link href={"/laboratory/equipment/add"}>

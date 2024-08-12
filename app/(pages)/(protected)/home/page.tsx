@@ -139,9 +139,10 @@ export default async function DashboardPage() {
 
   const pendingSample = await db.treatment.count({
     where: {
-      NOT: {
-        rsbRecommandation: null
-      },
+       
+        rsbRecommandation: null,
+        supStatus:'Approve'
+      
     }
   })
 

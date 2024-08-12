@@ -9,6 +9,14 @@ import { DataTableRowActionsCloseWaterSource } from "./data-table-row-actions";
 
 export const columns: ColumnDef<any>[] = [
   {
+    accessorKey: "scheduleDate",
+    header: () => <div className="text-left">Schedule date</div>,
+    cell: ({ row }) => {
+      const scheduleDate = moment(row.getValue("scheduleDate")).format("ll");
+      return scheduleDate;
+    },
+  },
+  {
     accessorKey: "line.name",
     header: "CUSTOMER LOCATION",
   },

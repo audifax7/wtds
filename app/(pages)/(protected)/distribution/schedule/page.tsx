@@ -14,13 +14,16 @@ export const metadata: Metadata = {
 export default async function OpenDistributionLinePage() {
   const user = await currentUser();
   const scheduled: any = await db.distribution.findMany({
-    // where: {
-    //   isOpen: null,
-    // },
+    where: {
+      isOpen: null,
+    },
     include: {
       line: true,
       user: true,
     },
+    orderBy:{
+      scheduleDate:'desc'
+    }
   });
 
   const isSupervisor= user.role=== UserRole.SUPERVISOR;
@@ -29,7 +32,7 @@ export default async function OpenDistributionLinePage() {
     <>
       <div className="flex items-center justify-between space-y-2 pb-4">
         <h2 className="text-3xl font-bold tracking-tight">
-          SCHEDULE DISTRIBUTION LOCATION
+         UPCOMING DELIVERIES 
         </h2>
         <div className="flex items-center space-x-2">
           {isSupervisor ?

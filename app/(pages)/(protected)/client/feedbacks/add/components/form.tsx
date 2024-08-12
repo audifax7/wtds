@@ -62,7 +62,7 @@ export function FeedbackForm({}) {
               name="content"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Comment </FormLabel>
+                  <FormLabel>Thought </FormLabel>
                   <FormControl>
                     <Textarea
                       {...field}
@@ -82,7 +82,7 @@ export function FeedbackForm({}) {
             disabled={isPending}
             className="w-52 hover:bg-sky-400"
           >
-            CREATE NEW
+            Submit
           </Button>
         </form>
       </Form>

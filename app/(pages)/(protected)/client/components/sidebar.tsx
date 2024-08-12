@@ -15,13 +15,13 @@ export function ClientSidebar({ className }: ClientSidebarProps) {
           <div className="space-y-1">
             <Link href={"/client/issues"}>
               <Button variant="ghost" className="w-full justify-start">
-                ISSUES
+              View and Raise an issue
               </Button>
             </Link>
 
             <Link href={"/client/feedbacks"}>
               <Button variant="ghost" className="w-full justify-start">
-                FEEDBACKS
+                Your suggestions
               </Button>
             </Link>
           </div>

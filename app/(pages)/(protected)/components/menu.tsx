@@ -65,7 +65,7 @@ export function MainNav({ role, className, ...props }: MainNavProps) {
 
       {isLab || isSupervisor ? (
         <Link
-          href="/laboratory/source"
+          href="/laboratory/treatement"
           className="text-sm font-medium transition-colors hover:text-primary"
         >
           Laboratory Activities

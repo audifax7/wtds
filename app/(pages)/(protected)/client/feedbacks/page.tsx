@@ -26,13 +26,13 @@ export default async function feedbacksPage() {
       <div className="">
         <div className="flex items-center justify-between space-y-2 pb-4">
           <h2 className="text-3xl font-bold tracking-tight">
-            LIST OF MY FEEDBACK
+            List of my Suggetions
           </h2>
           <div className="flex items-center space-x-2">
             <Link href={"/client/feedbacks/add"}>
               <Button>
                 <PlusCircle />
-                <span className="pl-2">ADD FEEDBACK</span>
+                <span className="pl-2">Share your thoughts</span>
               </Button>
             </Link>
           </div>

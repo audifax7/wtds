@@ -30,7 +30,7 @@ export default async function IssuesPage() {
             <Link href={"/client/issues/add"}>
               <Button>
                 <PlusCircle />
-                <span className="pl-2">Add issue</span>
+                <span className="pl-2">Raise an issue</span>
               </Button>
             </Link>
           </div>

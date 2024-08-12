@@ -19,6 +19,9 @@ export default async function TreatementsPage() {
       chemical: true,
       user: true
     },
+    orderBy:{
+      updatedAt:'desc'
+    }
   });
 
   const isLab = user.role === UserRole.LABORATOR;

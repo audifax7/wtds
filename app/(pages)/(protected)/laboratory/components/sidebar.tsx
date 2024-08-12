@@ -18,31 +18,32 @@ export async function LaboratorySidebar({ className }: LaboratorySidebarProps) {
             LABORATORY OPERATION
           </h2>
           <div className="space-y-1">
-            {/* <Link href={"/laboratory/source"}>
-              <Button variant="ghost" className="w-full justify-start">
-                WATER FROM SOURCE
-              </Button>
-            </Link> */}
+           
             {isSup ? <Link href={"/laboratory/treatement"}>
               <Button variant="ghost" className="w-full justify-start">
-                LAB TECHNICIAN WTP SUMMARY
+                View Lab Treatments
               </Button>
             </Link> : <Link href={"/laboratory/treatement"}>
               <Button variant="ghost" className="w-full justify-start">
-                ADD CHEMICALS
+                View and Set Treatment
               </Button>
             </Link>}
 
 
             <Link href={"/laboratory/inventory"}>
               <Button variant="ghost" className="w-full justify-start">
-                INVENTORY
+                View Chemical Inventory
               </Button>
             </Link>
 
             <Link href={"/laboratory/equipment"}>
               <Button variant="ghost" className="w-full justify-start">
-                EQUIPMENT STATUS
+               View Equipment Status
+              </Button>
+            </Link>
+             <Link href={"/laboratory/source"}>
+              <Button variant="ghost" className="w-full justify-start">
+                Water Source Notifications
               </Button>
             </Link>
           </div>

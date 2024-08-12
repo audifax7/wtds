@@ -12,12 +12,15 @@ export default async function CustomersAccountPage() {
   const user= await currentUser()
   const treatements: any = await db.treatment.findMany({
     where: {
-      approved: true,
-      // rsbStatus:"PENDING"
+      // approved: true,
+      supStatus:"Approve"
     },
     include: {
       chemical: true,
     },
+    orderBy:{
+      updatedAt:'desc'
+    }
   });
 
   return (

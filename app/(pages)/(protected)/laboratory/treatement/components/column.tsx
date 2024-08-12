@@ -28,10 +28,6 @@ export const columns: ColumnDef<any>[] = [
     header: "Treated Water Turbidity Average",
   },
   {
-    accessorKey: "domesticWaterUsed",
-    header: "Domestic WaterUsed",
-  },
-  {
     accessorKey: "phLevel",
     header: "pH Level",
   },
@@ -45,19 +41,23 @@ export const columns: ColumnDef<any>[] = [
     header: "Chemical in (mg/L)",
   },
   {
-    accessorKey: "approved",
+    accessorKey: "supStatus",
     header: "Approval from supevisor",
+  },
+  {
+    accessorKey: "supRecommandation",
+    header: "Supervisor recommandation",
   },
   {
     accessorKey: "rsbRecommandation",
     header: "RSB recommandation",
   },
   {
-    accessorKey: "createdAt",
-    header: () => <div className="text-left">Created At</div>,
+    accessorKey: "updatedAt",
+    header: () => <div className="text-left">Updated At</div>,
     cell: ({ row }) => {
-      const createdAt = moment(row.getValue("createdAt")).format("LLLL");
-      return createdAt;
+      const updatedAt = moment(row.getValue("updatedAt")).format("ll");
+      return updatedAt;
     },
   },
   {

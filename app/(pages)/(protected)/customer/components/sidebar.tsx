@@ -15,7 +15,7 @@ export function IssuesSidebar({ className }: IssuesSidebarProps) {
           <div className="space-y-1">
             <Link href={"/customer/issues"}>
               <Button variant="ghost" className="w-full justify-start">
-                ISSUES
+                Raised issues
               </Button>
             </Link>
           </div>

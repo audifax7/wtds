@@ -169,8 +169,18 @@ export const EditTreatementSchema = z.object({
       message: "Please enter your domesticWaterUsed, required.",
     })
   ),
+  supRecommandation: z.optional(
+    z.string().min(1, {
+      message: "Please enter your domesticWaterUsed, required.",
+    })
+  ),
   approved: z.optional(z.boolean()),
   rsbStatus: z.optional(
+    z.string().min(1, {
+      message: "Please enter your RSB Status, required.",
+    })
+  ),
+  supStatus: z.optional(
     z.string().min(1, {
       message: "Please enter your RSB Status, required.",
     })

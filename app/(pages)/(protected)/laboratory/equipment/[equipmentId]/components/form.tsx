@@ -82,7 +82,7 @@ export function EditEquipmentForm({ equipment }: EditEquipmentPageProps) {
               name="status"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>domestic Water Used</FormLabel>
+                  <FormLabel>Equipment Status</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -93,8 +93,8 @@ export function EditEquipmentForm({ equipment }: EditEquipmentPageProps) {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="OPERATION">OPERATION</SelectItem>
-                      <SelectItem value="UNDER MAINTENANCE">UNDER MAINTENANCE</SelectItem>
+                      <SelectItem value="OPERATION">Operational</SelectItem>
+                      <SelectItem value="UNDER MAINTENANCE">Under Maintenance</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />

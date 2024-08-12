@@ -241,7 +241,9 @@ model Treatment {
   chemicalQuantity             Int      @default(0)
   domesticWaterUsed            String?
   rsbStatus                    String?  @default("PENDING")
+  supStatus                    String?  @default("PENDING")
   rsbRecommandation            String?
+  supRecommandation            String?
   chemicalId                   String
   approved                     Boolean  @default(false)
   chemical                     Chemical @relation(fields: [chemicalId], references: [id], onDelete: Cascade)

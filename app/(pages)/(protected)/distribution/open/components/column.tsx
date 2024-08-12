@@ -26,11 +26,11 @@ export const columns: ColumnDef<any>[] = [
     header: "Open by",
   },
   {
-    accessorKey: "scheduleTime",
+    accessorKey: "scheduleDate",
     header: () => <div className="text-left">Schedule date</div>,
     cell: ({ row }) => {
-      const scheduleTime = moment(row.getValue("scheduleTime")).format("LL");
-      return scheduleTime;
+      const scheduleDate = moment(row.getValue("scheduleDate")).format("LL");
+      return scheduleDate;
     },
   },
   {

@@ -50,12 +50,11 @@ export function DataTableRowActionsTreatement<TData>({
             {isRSB ?
               <DropdownMenuItem>
                 <Link href={`/regulation/treatement/${treatement.id}`}>
-                  Share feedback
+                  Recommandation
                 </Link>
               </DropdownMenuItem> :
               null
             }
-
           </DropdownMenuContent>
         </DropdownMenu> :
         null

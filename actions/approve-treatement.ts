@@ -17,7 +17,7 @@ export const approveTreatement = async (
     return { error: "Invalid fields." };
   }
 
-  const { id } = validatedFields.data;
+  const { id ,supRecommandation,supStatus} = validatedFields.data;
 
   const treatment = await db.treatment.findUnique({
     where: {
@@ -47,7 +47,8 @@ export const approveTreatement = async (
         id,
       },
       data: {
-        approved: true,
+        supRecommandation,
+        supStatus
       },
     });
 

@@ -27,7 +27,7 @@ export default async function InventorysPage() {
     <>
       <div className="">
         <div className="flex items-center justify-between space-y-2 pb-4">
-          <h2 className="text-3xl font-bold tracking-tight"></h2>Kimisagara WTP Inventory
+          <h2 className="text-3xl font-bold tracking-tight"></h2>Kimisagara WTP Chemical Inventory
           <div className="flex items-center space-x-2">
             {isSupervisor ?
               <Link href={"/laboratory/inventory/add"}>

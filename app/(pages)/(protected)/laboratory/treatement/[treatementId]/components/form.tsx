@@ -32,6 +32,7 @@ import { useSession } from "next-auth/react";
 import { settings } from "@/actions/settings";
 import { Treatment, User, UserRole } from "@prisma/client";
 import { approveTreatement } from "@/actions/approve-treatement";
+import { Textarea } from "@/components/ui/textarea";
 
 interface TreatementPageProps {
   treatement: Treatment;
@@ -82,7 +83,50 @@ export function TreatementEditForm({ treatement }: TreatementPageProps) {
     <div className="">
       <Form {...form}>
         <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="space-y-4"></div>
+          <div className="space-y-4">
+               <FormField
+              control={form.control}
+              name="supStatus"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Action</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder={treatement.rsbStatus} />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Approve">Approve</SelectItem>
+                      <SelectItem value="Reject">Reject</SelectItem>
+                      <SelectItem value="Follow up">Follow up</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            /> 
+            <FormField
+              control={form.control}
+              name="supRecommandation"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Recommandation </FormLabel>
+                  <FormControl>
+                    <Textarea
+                      {...field}
+                      disabled={isPending}
+                      placeholder="add recommandation"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           {error && <FormError message={error} />}
           {success && <FormSuccess message={success} />}
           <Button
@@ -90,7 +134,7 @@ export function TreatementEditForm({ treatement }: TreatementPageProps) {
             type="submit"
             className="w-52 hover:bg-sky-400"
           >
-            Approve chimical
+             Submit
           </Button>
         </form>
       </Form>

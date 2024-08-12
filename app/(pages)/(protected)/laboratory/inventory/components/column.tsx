@@ -32,11 +32,11 @@ export const columns: ColumnDef<any>[] = [
   },
 
   {
-    accessorKey: "createdAt",
+    accessorKey: "updatedAt",
     header: () => <div className="text-left">Created At</div>,
     cell: ({ row }) => {
-      const createdAt = moment(row.getValue("createdAt")).format("LLLL");
-      return createdAt;
+      const updatedAt = moment(row.getValue("updatedAt")).format("LLLL");
+      return updatedAt;
     },
   },
 

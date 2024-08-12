@@ -125,7 +125,7 @@ export function IssueForm({ services }: IssuesFormProps) {
             disabled={isPending}
             className="w-52 hover:bg-sky-400"
           >
-            Create new issue
+            Submit
           </Button>
         </form>
       </Form>

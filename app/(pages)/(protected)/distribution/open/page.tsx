@@ -20,6 +20,9 @@ export default async function OpenDistributionLinePage() {
       line: true,
       user: true,
     },
+    orderBy:{
+      openTime:'desc'
+    }
   });
 
   return (

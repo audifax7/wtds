@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
-import { OpenDistributionLineForm } from "./components/form";
+// import { OpenDistributionLineForm } from "./components/form";
 import { db } from "@/lib/db";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default async function OpenDistributionLinePage() {
           </p>
         </div>
         <Separator />
-        <OpenDistributionLineForm lines={lines} />
+        {/* <OpenDistributionLineForm lines={lines} /> */}
       </div>
     </>
   );
