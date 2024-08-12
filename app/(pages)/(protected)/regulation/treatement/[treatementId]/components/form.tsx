@@ -88,12 +88,12 @@ export function TreatementFeedbackForm({
       <Form {...form}>
         <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
           <div className="space-y-4">
-              <FormField
+              {/* <FormField
               control={form.control}
               name="rsbStatus"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>domestic Water Used</FormLabel>
+                  <FormLabel>Action</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -104,15 +104,15 @@ export function TreatementFeedbackForm({
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="APPROVE">APPROVE</SelectItem>
-                      <SelectItem value="REJECT">REJECT</SelectItem>
-                      <SelectItem value="FOLLOW UP">FOLLOW UP</SelectItem>
+                      <SelectItem value="Approve">Approve</SelectItem>
+                      <SelectItem value="Reject">Reject</SelectItem>
+                      <SelectItem value="Follow up">Follow up</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={form.control}
               name="rsbRecommandation"

@@ -46,7 +46,7 @@ export const columns: ColumnDef<any>[] = [
   },
   {
     accessorKey: "approved",
-    header: "Approved",
+    header: "Approval from supevisor",
   },
   {
     accessorKey: "rsbRecommandation",

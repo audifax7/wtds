@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
+import { currentRole } from "@/lib/auth";
 import { cn } from "@/lib/utils";
+import { UserRole } from "@prisma/client";
 import Link from "next/link";
 
-interface LaboratorySidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface LaboratorySidebarProps extends React.HTMLAttributes<HTMLDivElement> { }
 
-export function LaboratorySidebar({ className }: LaboratorySidebarProps) {
+export async function LaboratorySidebar({ className }: LaboratorySidebarProps) {
+
+  const role = await currentRole();
+  const isSup = role === UserRole.SUPERVISOR;
   return (
     <div className={cn("pb-12", className)}>
       <div className="space-y-4 py-4">
@@ -13,17 +18,21 @@ export function LaboratorySidebar({ className }: LaboratorySidebarProps) {
             LABORATORY OPERATION
           </h2>
           <div className="space-y-1">
-            <Link href={"/laboratory/source"}>
+            {/* <Link href={"/laboratory/source"}>
               <Button variant="ghost" className="w-full justify-start">
                 WATER FROM SOURCE
               </Button>
-            </Link>
-
-            <Link href={"/laboratory/treatement"}>
+            </Link> */}
+            {isSup ? <Link href={"/laboratory/treatement"}>
               <Button variant="ghost" className="w-full justify-start">
-               VIEW WTP TREATEMENTS
+                LAB TECHNICIAN WTP SUMMARY
               </Button>
-            </Link>
+            </Link> : <Link href={"/laboratory/treatement"}>
+              <Button variant="ghost" className="w-full justify-start">
+                ADD CHEMICALS
+              </Button>
+            </Link>}
+
 
             <Link href={"/laboratory/inventory"}>
               <Button variant="ghost" className="w-full justify-start">
