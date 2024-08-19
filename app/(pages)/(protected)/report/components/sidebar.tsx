@@ -10,18 +10,18 @@ export function ReportSidebar({ className }: ReportSidebarProps) {
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-            WTDS REPORTS
+            WTP REPORTS
           </h2>
           <div className="space-y-1">
             <Link href={"/report/treatement"}>
               <Button variant="ghost" className="w-full justify-start">
-                TREATEMENT
+                Laboratory Treatment
               </Button>
             </Link>
 
             <Link href={"/report/distribution"}>
               <Button variant="ghost" className="w-full justify-start">
-                DISTRIBUTION
+                Water Distribution Summary
               </Button>
             </Link>
           </div>
