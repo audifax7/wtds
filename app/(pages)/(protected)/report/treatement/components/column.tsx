@@ -27,10 +27,7 @@ export const columns: ColumnDef<any>[] = [
     accessorKey: "TreatedWaterTurbidityAverage",
     header: "Treated Water Turbidity Average",
   },
-  {
-    accessorKey: "domesticWaterUsed",
-    header: "Domestic WaterUsed",
-  },
+
   {
     accessorKey: "chemical.name",
     header: "Chemical used",

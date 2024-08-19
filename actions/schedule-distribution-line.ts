@@ -18,7 +18,6 @@ export const scheduleDistributionLine = async (
   }
 
   const { lineId,quantity,scheduleDate } = validatedFields.data;
-  console.log({lineId,quantity,scheduleDate})
 
   await db.distribution.create({
     data: {

@@ -135,7 +135,7 @@ export const AddTreatementSchema = z.object({
   chemicalId: z.string().min(1, {
     message: "Please select chemical, required.",
   }),
-  domesticWaterUsed: z.string().optional()
+  domesticWaterUsed: z.string().optional(),
   // .string().min(1, {
   //   message: "Please enter your domesticWaterUsed, required.",
   // }),
@@ -303,6 +303,15 @@ export const ScheduleDistributionLineSchema = z.object({
   quantity: z.number(),
   scheduleDate: z.date({
     required_error: "A schedule date is required.",
+  }),
+});
+
+export const ReportSchema = z.object({
+  fromDate: z.date({
+    required_error: "A from date is required.",
+  }),
+  toDate: z.date({
+    required_error: "A from date is required.",
   }),
 });
 

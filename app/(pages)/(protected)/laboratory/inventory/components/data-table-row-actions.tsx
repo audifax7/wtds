@@ -23,8 +23,6 @@ export function DataTableRowActionsTreatement<TData>({
 
   const isSupervisor = treatement.currentUser.role === UserRole.SUPERVISOR;
   const isRSB = treatement.currentUser.role === UserRole.RSB;
-  console.log(treatement.currentUser)
-  console.log({"sup": isSupervisor,"RSB":isRSB})
 
   return (
     <>

@@ -1,17 +1,40 @@
 "use client";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { format } from "date-fns"
+import { CalendarIcon, PrinterIcon } from "lucide-react"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 
-import { Skeleton } from "@/components/ui/skeleton";
-import { DataTable } from "./data-table";
-import { columns } from "./column";
-import { Issue, Treatment, User } from "@prisma/client";
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Calendar } from "@/components/ui/calendar"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { Treatment, User } from "@prisma/client";
+import { useIsClient } from "@/hooks/use-is-client";
+import { useState, useTransition } from "react";
+import { ReportSchema } from "@/schemas";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
-import { wasacLogo } from "@/public/images/imageData";
 import moment from "moment";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { PrinterIcon } from "lucide-react";
-import { use } from "react";
+import { wasacLogo } from "@/public/images/imageData";
+import Spinner from "@/components/spinner";
+import { DataTable } from "./data-table";
+import { columns } from "./column";
+import { Skeleton } from "@/components/ui/skeleton";
+
+
 
 
 
@@ -21,6 +44,36 @@ interface TreatementsListProps {
 }
 
 export const Treatements = ({ treatements, user }: TreatementsListProps) => {
+
+  const isClient = useIsClient();
+
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<string>("");
+
+  const [isPending, startTransition] = useTransition();
+
+  const form = useForm<z.infer<typeof ReportSchema>>({
+    resolver: zodResolver(ReportSchema),
+    defaultValues: {
+      fromDate: new Date(),
+      toDate: new Date(),
+    },
+  });
+
+  const onSubmit = (values: z.infer<typeof ReportSchema>) => {
+    startTransition(() => {
+      const treatementsFilter = treatements.filter((item: any) =>
+        item.createdAt.getTime() >= values.fromDate.getTime() && item.createdAt.getTime() <= values.toDate.getTime()
+      );
+      onPrintTreatement(treatementsFilter);
+      console.log({ treatements })
+    });
+
+    form.reset();
+    setSuccess("");
+    setError("");
+  };
+
   const data: any = [];
   treatements.forEach(function (treatement: any) {
     data.push(
@@ -31,7 +84,7 @@ export const Treatements = ({ treatements, user }: TreatementsListProps) => {
       }
     )
   })
-  const onPrintTreatement = () => {
+  const onPrintTreatement = (treatementsFilter: any[]) => {
     const doc = new jsPDF({
       orientation: "l",
       unit: "mm",
@@ -40,7 +93,7 @@ export const Treatements = ({ treatements, user }: TreatementsListProps) => {
     });
     var rows: any = [];
     var sum: number = 0;
-    treatements.forEach((treatement: any, index: number) => {
+    treatementsFilter.forEach((treatement: any, index: number) => {
       var temp = [
         (index += 1),
         moment(treatement.createdAt).format("YYYY-MM-DD"),
@@ -120,16 +173,103 @@ export const Treatements = ({ treatements, user }: TreatementsListProps) => {
       },
     });
 
-    
+
     return doc.save(`${moment(new Date()).format("YYYY-MM-DD")}_treatement_report`);
   };
+
+  if (!isClient) return <Spinner />;
+
   return (
     <>
-      <Button onClick={onPrintTreatement}>
-        <PrinterIcon />
-        <span className="pl-2">PRINT PDF</span>
-      </Button>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-x-8 flex flex-row">
+          <FormField
+            control={form.control}
+            name="fromDate"
+            render={({ field }) => (
+              <FormItem className="flex flex-row space-x-4">
+                <FormLabel>From date</FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-[240px] pl-3 text-left font-normal",
+                          !field.value && "text-muted-foreground"
+                        )}
+                      >
+                        {field.value ? (
+                          format(field.value, "PPP")
+                        ) : (
+                          <span>Pick a date</span>
+                        )}
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      disabled={(date) =>
+                        date > new Date()}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
 
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="toDate"
+            render={({ field }) => (
+              <FormItem className="flex flex-row space-x-4">
+                <FormLabel>To date</FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-[240px] pl-3 text-left font-normal",
+                          !field.value && "text-muted-foreground"
+                        )}
+                      >
+                        {field.value ? (
+                          format(field.value, "PPP")
+                        ) : (
+                          <span>Pick a date</span>
+                        )}
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      disabled={(date) =>
+                        date > new Date()
+                      }
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" className="space-x-4">         <PrinterIcon />
+            <span>Print PDF</span></Button>
+        </form>
+      </Form>
 
       <DataTable columns={columns} data={data} />
     </>

@@ -27,10 +27,8 @@ export default async function DistributionsPage() {
   return (
     <>
       <div className="">
-        <div className="flex items-center justify-between space-y-2 pb-4">
-          <h2 className="text-3xl font-bold tracking-tight"></h2>INDUSTRY
-          DISTRIBUTION
-        </div>
+          <h2 className="text-3xl font-bold tracking-tight pb-12">INDUSTRY
+          DISTRIBUTION</h2>
         <Distributions user={user} distributions={distributions} />
       </div>
     </>

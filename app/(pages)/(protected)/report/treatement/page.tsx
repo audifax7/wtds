@@ -24,12 +24,10 @@ export default async function TreatementsPage() {
 
   return (
     <>
-      <div className="">
-        <div className="flex items-center justify-between space-y-2 pb-4">
-          <h2 className="text-3xl font-bold tracking-tight"></h2>INDUSTRY
-          TREATEMENTS
+      <div className="flex flex-col">
+          <h2 className="text-3xl font-bold tracking-tight pb-12">INDUSTRY
+          TREATEMENTS</h2>
 
-        </div>
         <Treatements user={user} treatements={treatements} />
       </div>
     </>
