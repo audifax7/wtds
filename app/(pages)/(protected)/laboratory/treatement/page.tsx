@@ -30,7 +30,7 @@ export default async function TreatementsPage() {
     <>
       <div className="">
         <div className="flex items-center justify-between space-y-2 pb-4">
-          <h2 className="text-3xl font-bold tracking-tight"></h2>Kimisagara WTP | Date { moment().format('LL')} | Time {moment().format('LTS')} | Techinicain : {user.name}
+          <h2 className="text-3xl font-bold tracking-tight"></h2>Kimisagara WTP | Date { moment().format('LL')} | Time {moment().format('LTS')} | Techbnician : {user.name}
           <div className="flex items-center space-x-2">
             {isLab ?
               <Link href={"/laboratory/treatement/add"}>

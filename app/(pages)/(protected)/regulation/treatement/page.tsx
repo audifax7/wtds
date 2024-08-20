@@ -28,7 +28,7 @@ export default async function CustomersAccountPage() {
       <div className="">
         <div className="flex items-center justify-between space-y-2 pb-4">
           <h2 className="text-3xl font-bold tracking-tight">
-            WATER TREATEMENTS FROM KWTP
+            WATER TREATEMENTS FROM KIMISAGARA WTP
           </h2>
         </div>
         <Treatements user={user} treatements={treatements} />
