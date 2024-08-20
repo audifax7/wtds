@@ -135,7 +135,18 @@ export const AddTreatementSchema = z.object({
   chemicalId: z.string().min(1, {
     message: "Please select chemical, required.",
   }),
-  domesticWaterUsed: z.string().optional(),
+  stage: z.string({ message: "Please enter stage" }),
+  parameter: z.string({ message: "Please enter parameter" }),
+  rowWaterQuality: z.string({ message: "Please enter row Water Quality" }),
+  treateWaterQuality: z.string({
+    message: "Please enter treated Water Quality",
+  }),
+  treatementObjective: z.string({
+    message: "Please enter treatement Objective",
+  }),
+  dosage: z.string({ message: "Please enter dosage" }),
+  outCome: z.string({ message: "Please enter outCome" }),
+
   // .string().min(1, {
   //   message: "Please enter your domesticWaterUsed, required.",
   // }),
@@ -154,6 +165,9 @@ export const EditTreatementSchema = z.object({
   rowWaterTurbidityAverage: z.optional(z.number()),
   treatedWater: z.optional(z.number()),
   TreatedWaterTurbidityAverage: z.optional(z.number()),
+  phLevel: z.optional(z.number()),
+  chemicalQuantity: z.optional(z.number()),
+
   chemicalId: z.optional(
     z.string().min(1, {
       message: "Please select chemical, required.",
@@ -181,6 +195,41 @@ export const EditTreatementSchema = z.object({
     })
   ),
   supStatus: z.optional(
+    z.string().min(1, {
+      message: "Please enter your RSB Status, required.",
+    })
+  ),
+  stage: z.optional(
+    z.string().min(1, {
+      message: "Please enter your RSB Status, required.",
+    })
+  ),
+  parameter: z.optional(
+    z.string().min(1, {
+      message: "Please enter your RSB Status, required.",
+    })
+  ),
+  rowWaterQuality: z.optional(
+    z.string().min(1, {
+      message: "Please enter your RSB Status, required.",
+    })
+  ),
+  treateWaterQuality: z.optional(
+    z.string().min(1, {
+      message: "Please enter your RSB Status, required.",
+    })
+  ),
+  treatementObjective: z.optional(
+    z.string().min(1, {
+      message: "Please enter your RSB Status, required.",
+    })
+  ),
+  dosage: z.optional(
+    z.string().min(1, {
+      message: "Please enter your RSB Status, required.",
+    })
+  ),
+  outCome: z.optional(
     z.string().min(1, {
       message: "Please enter your RSB Status, required.",
     })

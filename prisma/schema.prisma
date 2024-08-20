@@ -233,13 +233,20 @@ model Source {
 
 model Treatment {
   id                           String   @id @default(cuid())
-  rowWater                     Decimal
-  rowWaterTurbidityAverage     Decimal
-  treatedWater                 Decimal
-  TreatedWaterTurbidityAverage Decimal
-  phLevel                      Decimal?
+  rowWater                     Int
+  rowWaterTurbidityAverage     Int
+  treatedWater                 Int
+  TreatedWaterTurbidityAverage Int
+  phLevel                      Int?
   chemicalQuantity             Int      @default(0)
   domesticWaterUsed            String?
+  stage                        String
+  parameter                    String
+  rowWaterQuality              String
+  treateWaterQuality           String
+  treatementObjective          String
+  dosage                       String
+  outCome                      String
   rsbStatus                    String?  @default("PENDING")
   supStatus                    String?  @default("PENDING")
   rsbRecommandation            String?

@@ -21,15 +21,13 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { useState, useTransition } from "react";
 import { useIsClient } from "@/hooks/use-is-client";
 import { AddTreatementSchema } from "@/schemas";
 import Spinner from "@/components/spinner";
 import FormError from "@/components/form-error";
 import FormSuccess from "@/components/form-success";
-import { addIssue } from "@/actions/add-issue";
-import { Chemical, Service } from "@prisma/client";
+import { Chemical } from "@prisma/client";
 import { addTreatement } from "@/actions/add-treatment";
 
 interface TreatementsFormProps {
@@ -46,8 +44,6 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
   const form = useForm<z.infer<typeof AddTreatementSchema>>({
     resolver: zodResolver(AddTreatementSchema),
     defaultValues: {
-      chemicalId: "",
-      domesticWaterUsed: "",
     },
   });
 
@@ -70,7 +66,7 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
     <div className="">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="space-y-4">
+          <div className="space-x-6 grid grid-cols-2">
             <FormField
               control={form.control}
               name="rowWater"
@@ -228,7 +224,7 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                   Chemical Quantity (mg/L)
+                    Chemical Quantity (mg/L)
                   </FormLabel>
                   <FormControl>
                     <Input
@@ -236,6 +232,132 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
                       onChange={(event) => field.onChange(+event.target.value)}
                       disabled={isPending}
                       type="number"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="stage"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Stage</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      type="text"
+                      placeholder="Enter stage"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="parameter"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Parameter</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      type="text"
+                      placeholder="Enter parameter"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="rowWaterQuality"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Row Water Quality</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      type="text"
+                      placeholder="Enter row Water quality"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="treateWaterQuality"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>treated Water Quality</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      type="text"
+                      placeholder="Enter treate Water Quality"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="treatementObjective"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Treatement Objective</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      type="text"
+                      placeholder="Enter treatement Objective"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="dosage"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Dosage</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      type="text"
+                      placeholder="Enter dosage"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="outCome"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Out Come</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      type="text"
+                      placeholder="Enter out Come"
                     />
                   </FormControl>
                   <FormMessage />
