@@ -294,6 +294,9 @@ export const OpenDistributionLineSchema = z.object({
   id: z.string().min(1, {
     message: "Please select line, required.",
   }),
+
+
+  
 });
 
 export const ScheduleDistributionLineSchema = z.object({
@@ -311,7 +314,7 @@ export const ReportSchema = z.object({
     required_error: "A from date is required.",
   }),
   toDate: z.date({
-    required_error: "A from date is required.",
+    required_error: "A to date is required.",
   }),
 });
 

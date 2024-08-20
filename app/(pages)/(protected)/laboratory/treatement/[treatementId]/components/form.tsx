@@ -100,9 +100,9 @@ export function TreatementEditForm({ treatement }: TreatementPageProps) {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="Approve">Approve</SelectItem>
-                      <SelectItem value="Reject">Reject</SelectItem>
-                      <SelectItem value="Follow up">Follow up</SelectItem>
+                      <SelectItem value="Approved">Approve</SelectItem>
+                      <SelectItem value="Rejected">Reject</SelectItem>
+                      {/* <SelectItem value="Follow up">Follow up</SelectItem> */}
                     </SelectContent>
                   </Select>
                   <FormMessage />
