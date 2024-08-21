@@ -63,10 +63,9 @@ export const Treatements = ({ treatements, user }: TreatementsListProps) => {
   const onSubmit = (values: z.infer<typeof ReportSchema>) => {
     startTransition(() => {
       const treatementsFilter = treatements.filter((item: any) =>
-        item.createdAt.getTime() >= values.fromDate.getTime() && item.createdAt.getTime() <= values.toDate.getTime()
+        moment(item.createdAt).format('L') >= moment(values.fromDate).format('L') && moment(item.createdAt).format('L') <= moment(values.toDate).format('L')
       );
       onPrintTreatement(treatementsFilter);
-      console.log({ treatements })
     });
 
     form.reset();

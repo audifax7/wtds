@@ -37,6 +37,7 @@ export const SettingsSchema = z.object({
     UserRole.LABORATOR,
     UserRole.SOURCE,
     UserRole.SUPERVISOR,
+    UserRole.RSB
   ]),
   email: z.optional(z.string().email()),
   password: z.optional(z.string().min(1)),
