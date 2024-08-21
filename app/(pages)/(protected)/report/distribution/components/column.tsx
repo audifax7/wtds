@@ -23,7 +23,7 @@ export const columns: ColumnDef<any>[] = [
     accessorKey: "openTime",
     header: () => <div className="text-left">OPEN AT</div>,
     cell: ({ row }) => {
-      const openTime = moment(row.getValue("openTime")).format("LLLL");
+      const openTime = moment(row.getValue("openTime")).format("LL");
       return openTime;
     },
   },
@@ -31,7 +31,7 @@ export const columns: ColumnDef<any>[] = [
     accessorKey: "closeTime",
     header: () => <div className="text-left">CLOSE AT</div>,
     cell: ({ row }) => {
-      const closeTime = moment(row.getValue("closeTime")).format("LLLL");
+      const closeTime = moment(row.getValue("closeTime")).format("LL");
       return closeTime;
     },
   },
@@ -45,7 +45,7 @@ export const columns: ColumnDef<any>[] = [
     accessorKey: "createdAt",
     header: () => <div className="text-left">CREATED AT</div>,
     cell: ({ row }) => {
-      const createdAt = moment(row.getValue("createdAt")).format("LLLL");
+      const createdAt = moment(row.getValue("createdAt")).format("LL");
       return createdAt;
     },
   },

@@ -37,7 +37,7 @@ export const columns: ColumnDef<any>[] = [
     accessorKey: "openTime",
     header: () => <div className="text-left">Open time</div>,
     cell: ({ row }) => {
-      const openTime = moment(row.getValue("openTime")).format("LLLL");
+      const openTime = moment(row.getValue("openTime")).format("LL");
       return openTime;
     },
   },

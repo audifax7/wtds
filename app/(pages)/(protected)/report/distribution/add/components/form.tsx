@@ -47,7 +47,6 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
     resolver: zodResolver(AddTreatementSchema),
     defaultValues: {
       chemicalId: "",
-      domesticWaterUsed: "",
       rowWater: 0,
       rowWaterTurbidityAverage: 0,
       treatedWater: 0,
@@ -155,7 +154,7 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
               )}
             />
 
-            <FormField
+            {/* <FormField
               control={form.control}
               name="domesticWaterUsed"
               render={({ field }) => (
@@ -178,7 +177,7 @@ export function TreatementForm({ chemicals }: TreatementsFormProps) {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={form.control}
               name="chemicalId"
