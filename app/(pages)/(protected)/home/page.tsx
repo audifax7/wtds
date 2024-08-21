@@ -8,6 +8,7 @@ import { TreatmentDashboard } from "./components/treatment";
 import { DistributionDashboardDashboard } from "./components/distribution-dashboard";
 import { CustomerDashboardDashboard } from "./components/customer-dashboard";
 import { RSBDashboard } from "./components/rsb";
+import { SourceDashboard } from "./components/source";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -146,6 +147,19 @@ export default async function DashboardPage() {
     }
   })
 
+  const todayRowWater = await db.sourceAction.aggregate({
+    where: {
+      createdAt: {
+        equals: today.toISOString()
+      }
+    },
+    _sum: {
+      quantity: true,
+    }
+  })
+
+  console.log(todayRowWater)
+
 
 
 
@@ -156,6 +170,7 @@ export default async function DashboardPage() {
   const isCustomer: boolean = role === UserRole.CUSTOMER;
   const isRSB: boolean = role === UserRole.RSB;
   const isAdmin: boolean = role === UserRole.ADMIN;
+  const isSource: boolean =role === UserRole.SOURCE;
 
 
 
@@ -211,6 +226,11 @@ export default async function DashboardPage() {
       {isRSB ? (
         <RSBDashboard
           pendingSample={pendingSample}
+        />
+      ) : null}
+       {isSource ? (
+        <SourceDashboard
+          rowWater={todayRowWater}
         />
       ) : null}
 
