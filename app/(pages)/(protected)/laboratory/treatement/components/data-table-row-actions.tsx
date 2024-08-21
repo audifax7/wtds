@@ -23,10 +23,11 @@ export function DataTableRowActionsTreatement<TData>({
 
   const isSupervisor = treatement.currentUser.role === UserRole.SUPERVISOR;
   const isRSB = treatement.currentUser.role === UserRole.RSB;
+  const isLab= treatement.currentUser.role=== UserRole.LABORATOR;
 
   return (
     <>
-      {isRSB || isSupervisor ?
+      {isRSB || isSupervisor || isLab ?
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
@@ -49,6 +50,14 @@ export function DataTableRowActionsTreatement<TData>({
               <DropdownMenuItem>
                 <Link href={`/regulation/treatement/${treatement.id}`}>
                   Recommandation
+                </Link>
+              </DropdownMenuItem> :
+              null
+            }
+              {isLab ?
+              <DropdownMenuItem>
+                <Link href={`/laboratory/treatement/change/${treatement.id}`}>
+                  Change
                 </Link>
               </DropdownMenuItem> :
               null

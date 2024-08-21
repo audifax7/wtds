@@ -16,14 +16,50 @@ export const editTreatement = async (
   if (!validatedFields.success) {
     return { error: "Invalid fields." };
   }
-  const { id, rsbRecommandation,rsbStatus } = validatedFields.data;
+  const {
+    id,
+    rsbRecommandation,
+    rsbStatus,
+    TreatedWaterTurbidityAverage,
+    approved,
+    chemicalId,
+    domesticWaterUsed,
+    dosage,
+    outCome,
+    parameter,
+    rowWater,
+    rowWaterQuality,
+    rowWaterTurbidityAverage,
+    stage,
+    supRecommandation,
+    supStatus,
+    treateWaterQuality,
+    treatedWater,
+    treatementObjective,
+  } = validatedFields.data;
   await db.treatment.update({
     where: {
       id,
     },
     data: {
       rsbRecommandation,
-      rsbStatus
+      rsbStatus,
+      TreatedWaterTurbidityAverage,
+      approved,
+      chemicalId,
+      domesticWaterUsed,
+      dosage,
+      outCome,
+      parameter,
+      rowWater,
+      rowWaterQuality,
+      rowWaterTurbidityAverage,
+      stage,
+      supRecommandation,
+      supStatus,
+      treateWaterQuality,
+      treatedWater,
+      treatementObjective,
     },
   });
 

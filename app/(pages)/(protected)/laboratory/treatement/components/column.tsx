@@ -53,6 +53,36 @@ export const columns: ColumnDef<any>[] = [
     header: "RSB recommandation",
   },
   {
+    accessorKey: "stage",
+    header: "Stage",
+  },
+  {
+    accessorKey: "parameter",
+    header: "Parameter",
+  },
+  {
+    accessorKey: "rowWaterQuality",
+    header: "row water quality",
+  },
+  {
+    accessorKey: "treateWaterQuality",
+    header: "Treated water quality",
+  },
+
+  //
+  {
+    accessorKey: "treatementObjective",
+    header: "Treatement objective",
+  },
+  {
+    accessorKey: "dosage",
+    header: "Dosage",
+  },
+  {
+    accessorKey: "outCome",
+    header: "Out come",
+  },
+  {
     accessorKey: "updatedAt",
     header: () => <div className="text-left">Updated At</div>,
     cell: ({ row }) => {
