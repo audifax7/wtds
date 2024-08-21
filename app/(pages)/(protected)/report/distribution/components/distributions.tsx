@@ -60,7 +60,7 @@ export const Distributions = ({ distributions, user }: DistributionsListProps) =
   const onSubmit = (values: z.infer<typeof ReportSchema>) => {
     startTransition(() => {
       const distributionsFilter = distributions.filter((item: any) =>
-        item.closeTime.getTime() >= values.fromDate.getTime() && item.closeTime.getTime() <= values.toDate.getTime()
+        moment(item.closeTime).format('L') >= moment(values.fromDate).format('L') && moment(item.closeTime).format('L') <= moment(values.toDate).format('L')
       );
       onPrintDistribution(distributionsFilter);
     });
